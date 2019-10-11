@@ -1,0 +1,84 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Game_Parts/PauseMenu/PauseMenu.gd" type="Script" id=1]
+[ext_resource path="res://Game_Parts/PauseMenu/PauseMenuButton.tscn" type="PackedScene" id=2]
+
+[node name="GameMenu" type="Control"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -360.0
+margin_right = 640.0
+margin_bottom = 360.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.372549, 0.372549, 0.372549, 0.309804 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -90.0
+margin_top = -110.0
+margin_right = 90.0
+margin_bottom = 110.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = 4.0
+margin_right = -6.0
+margin_bottom = -4.0
+alignment = 1
+
+[node name="Button_return" parent="Panel/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 168.0
+margin_bottom = 60.0
+text = "BACK"
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
+margin_top = 64.0
+margin_right = 168.0
+margin_bottom = 72.0
+size_flags_vertical = 3
+
+[node name="Button_moar" parent="Panel/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 0.0
+margin_top = 76.0
+margin_right = 168.0
+margin_bottom = 136.0
+text = "MOAR"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/VBoxContainer"]
+margin_top = 140.0
+margin_right = 168.0
+margin_bottom = 148.0
+size_flags_vertical = 3
+
+[node name="Button_exit" parent="Panel/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 0.0
+margin_top = 152.0
+margin_right = 168.0
+margin_bottom = 212.0
+text = "EXIT"
+[connection signal="pressed" from="Panel/VBoxContainer/Button_return" to="." method="_on_Button_return_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Button_moar" to="." method="_on_Button_moar_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Button_exit" to="." method="_on_Button_exit_pressed"]

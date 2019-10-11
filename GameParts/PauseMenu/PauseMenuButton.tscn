@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Game_Parts/PauseMenu/PauseMenuFont.tres" type="DynamicFont" id=1]
+
+[node name="GameMenuButton" type="Button"]
+margin_left = 61.0
+margin_top = 53.0
+margin_right = 235.0
+margin_bottom = 113.0
+rect_min_size = Vector2( 80, 60 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "TEST TEXY"
