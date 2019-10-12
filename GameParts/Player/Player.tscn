@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://GameParts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Particles/effect9.png" type="Texture" id=2]
 [ext_resource path="res://Resources/Particles/effect4.png" type="Texture" id=3]
-[ext_resource path="res://Resources/Light/effect_un_light.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 15.0
@@ -25,11 +24,3 @@ texture = ExtResource( 2 )
 position = Vector2( 0, -30 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
-
-[node name="Light2D" type="Light2D" parent="."]
-texture = ExtResource( 4 )
-texture_scale = 20.0
-range_height = 6.5
-shadow_enabled = true
-shadow_color = Color( 0.521569, 0.301961, 0.470588, 1 )
-shadow_gradient_length = 2.0
