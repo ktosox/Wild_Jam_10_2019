@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/effect_un_light.png-889d023f0f1203e3ed2d521ca02c82cb.stex"
+path="res://.import/banner_1.png-77e11948655561be3d52adec5a49c873.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Light/effect_un_light.png"
-dest_files=[ "res://.import/effect_un_light.png-889d023f0f1203e3ed2d521ca02c82cb.stex" ]
+source_file="res://Resources/banner_1.png"
+dest_files=[ "res://.import/banner_1.png-77e11948655561be3d52adec5a49c873.stex" ]
 
 [params]
 

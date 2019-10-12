@@ -18,6 +18,11 @@ _global_script_class_icons={
 config/name="Edge_of_Abyss"
 config/icon="res://icon.png"
 
+[autoload]
+
+GM="*res://GameManager.gd"
+SM="*res://ShaderManager.gd"
+
 [display]
 
 window/size/width=1920

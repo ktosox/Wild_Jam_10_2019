@@ -1,16 +1,17 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Game_Parts/GameOverMenu/GameOverMenu.gd" type="Script" id=1]
-[ext_resource path="res://Game_Parts/GameOverMenu/GameOverSignFont.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Game_Parts/GameOverMenu/GameOverButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GameParts/GameOverMenu/GameOverMenu.gd" type="Script" id=1]
+[ext_resource path="res://GameParts/GameOverMenu/GameOverSignFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://GameParts/GameOverMenu/GameOverButton.tscn" type="PackedScene" id=3]
 
 [node name="GameOverMenu" type="ColorRect"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.713726 )
+color = Color( 1, 1, 1, 0 )
 script = ExtResource( 1 )
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="ColorRect" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -49,43 +50,37 @@ margin_bottom = 236.0
 size_flags_vertical = 3
 
 [node name="MarginContainer3" type="MarginContainer" parent="Panel/VBoxContainer/HBoxContainer"]
-margin_right = 29.0
+margin_right = 8.0
 margin_bottom = 104.0
 size_flags_horizontal = 3
 
 [node name="GameOverButton" parent="Panel/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 33.0
-margin_right = 203.0
-margin_bottom = 104.0
-
-[node name="VSeparator" type="VSeparator" parent="Panel/VBoxContainer/HBoxContainer"]
-margin_left = 207.0
-margin_right = 211.0
+margin_left = 12.0
+margin_top = 0.0
+margin_right = 201.0
 margin_bottom = 104.0
 
 [node name="GameOverButton2" parent="Panel/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 215.0
-margin_right = 385.0
-margin_bottom = 104.0
-
-[node name="VSeparator2" type="VSeparator" parent="Panel/VBoxContainer/HBoxContainer"]
-margin_left = 389.0
-margin_right = 393.0
+margin_left = 205.0
+margin_top = 0.0
+margin_right = 394.0
 margin_bottom = 104.0
 
 [node name="GameOverButton3" parent="Panel/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 397.0
-margin_right = 567.0
+margin_left = 398.0
+margin_top = 0.0
+margin_right = 587.0
 margin_bottom = 104.0
+action_mode = 0
 
 [node name="MarginContainer4" type="MarginContainer" parent="Panel/VBoxContainer/HBoxContainer"]
-margin_left = 571.0
+margin_left = 591.0
 margin_right = 600.0
 margin_bottom = 104.0
 size_flags_horizontal = 3
@@ -95,3 +90,6 @@ margin_top = 240.0
 margin_right = 600.0
 margin_bottom = 260.0
 rect_min_size = Vector2( 0, 20 )
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/GameOverButton" to="." method="_on_GameOverButton_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/GameOverButton2" to="." method="_on_GameOverButton2_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/GameOverButton3" to="." method="_on_GameOverButton3_pressed"]
