@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/org_short_R_to_L_002.wav-163acd7439bedf3794cacc3e15ff3ceb.sample"
+
+[deps]
+
+source_file="res://Resources/Audio/GDC2019/org_short_R_to_L_002.wav"
+dest_files=[ "res://.import/org_short_R_to_L_002.wav-163acd7439bedf3794cacc3e15ff3ceb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

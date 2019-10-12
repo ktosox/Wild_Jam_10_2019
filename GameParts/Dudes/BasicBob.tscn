@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Resources/Shaders/Layer1.tres" type="Material" id=1]
 [ext_resource path="res://Resources/Particles/effect4.png" type="Texture" id=2]
+[ext_resource path="res://Resources/banner_2.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 15.0
@@ -14,6 +15,11 @@ material = ExtResource( 1 )
 position = Vector2( 0, -30 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
+
+[node name="banner_2" type="Sprite" parent="effect4"]
+use_parent_material = true
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -15 )

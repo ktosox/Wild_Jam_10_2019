@@ -21,7 +21,6 @@ config/icon="res://icon.png"
 [autoload]
 
 GM="*res://GameManager.gd"
-SM="*res://ShaderManager.gd"
 
 [display]
 

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Melancholy Texture D 4.wav-3ea8a98aa08820bc6c8334ea0dc8baf0.sample"
+
+[deps]
+
+source_file="res://Resources/Audio/GDC2019/Melancholy Texture D 4.wav"
+dest_files=[ "res://.import/Melancholy Texture D 4.wav-3ea8a98aa08820bc6c8334ea0dc8baf0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

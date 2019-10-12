@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/fm_swell_005.wav-2790fbf679f865407771691b11072dc2.sample"
+
+[deps]
+
+source_file="res://Resources/Audio/GDC2018/fm_swell_005.wav"
+dest_files=[ "res://.import/fm_swell_005.wav-2790fbf679f865407771691b11072dc2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

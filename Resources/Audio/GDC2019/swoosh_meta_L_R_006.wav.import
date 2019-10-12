@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/swoosh_meta_L_R_006.wav-dafce1adf0a1b459662d9b4d6c5e86a6.sample"
+
+[deps]
+
+source_file="res://Resources/Audio/GDC2019/swoosh_meta_L_R_006.wav"
+dest_files=[ "res://.import/swoosh_meta_L_R_006.wav-dafce1adf0a1b459662d9b4d6c5e86a6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

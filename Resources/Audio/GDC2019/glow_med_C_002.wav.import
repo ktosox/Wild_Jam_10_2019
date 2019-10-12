@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/glow_med_C_002.wav-d64f18dc76544d2ae6427176c9fd6f2d.sample"
+
+[deps]
+
+source_file="res://Resources/Audio/GDC2019/glow_med_C_002.wav"
+dest_files=[ "res://.import/glow_med_C_002.wav-d64f18dc76544d2ae6427176c9fd6f2d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

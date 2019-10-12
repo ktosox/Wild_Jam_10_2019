@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Breaths,Male,Exhale,Ghost,Evil,Hostile,Snarl,1.wav-8f139ef00d2b196f3f072972db23f9ca.sample"
+
+[deps]
+
+source_file="res://Resources/Audio/GDC2018/Breaths,Male,Exhale,Ghost,Evil,Hostile,Snarl,1.wav"
+dest_files=[ "res://.import/Breaths,Male,Exhale,Ghost,Evil,Hostile,Snarl,1.wav-8f139ef00d2b196f3f072972db23f9ca.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
