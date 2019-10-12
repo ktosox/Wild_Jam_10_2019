@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pixel_3.png-64f3d3a90c60959a801fc2db09c025ef.stex"
+path="res://.import/Pixel_Particle_2.png-25401e8bddb4d7af544e345814a9b500.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Particles/Pixel_3.png"
-dest_files=[ "res://.import/Pixel_3.png-64f3d3a90c60959a801fc2db09c025ef.stex" ]
+source_file="res://Resources/Particles/Pixel_Particle_2.png"
+dest_files=[ "res://.import/Pixel_Particle_2.png-25401e8bddb4d7af544e345814a9b500.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

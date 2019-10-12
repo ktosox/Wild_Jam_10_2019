@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pixel_2.png-12b31524fb6999038087928103341d28.stex"
+path="res://.import/effect_un_light.png-889d023f0f1203e3ed2d521ca02c82cb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Particles/Pixel_2.png"
-dest_files=[ "res://.import/Pixel_2.png-12b31524fb6999038087928103341d28.stex" ]
+source_file="res://Resources/Light/effect_un_light.png"
+dest_files=[ "res://.import/effect_un_light.png-889d023f0f1203e3ed2d521ca02c82cb.stex" ]
 
 [params]
 

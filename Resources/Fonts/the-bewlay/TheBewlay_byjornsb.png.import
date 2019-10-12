@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pixel_1.png-0737a543a267215e7bce1130c7df46c1.stex"
+path="res://.import/TheBewlay_byjornsb.png-003a44712544a88cb983e739d6cf9ad8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Particles/Pixel_1.png"
-dest_files=[ "res://.import/Pixel_1.png-0737a543a267215e7bce1130c7df46c1.stex" ]
+source_file="res://Resources/Fonts/the-bewlay/TheBewlay_byjornsb.png"
+dest_files=[ "res://.import/TheBewlay_byjornsb.png-003a44712544a88cb983e739d6cf9ad8.stex" ]
 
 [params]
 
