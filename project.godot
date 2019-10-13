@@ -29,6 +29,15 @@ window/size/height=1080
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
+[layer_names]
+
+2d_physics/layer_1="DO NOT USE"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Snakes1"
+2d_physics/layer_4="Snakes2"
+2d_physics/layer_5="Bats1"
+2d_physics/layer_6="Bats2"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"

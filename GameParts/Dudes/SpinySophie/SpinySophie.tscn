@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="SpinySophie" type="Node2D"]
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="Marks" type="Node2D" parent="."]
+
+[node name="Face" type="Node2D" parent="."]
