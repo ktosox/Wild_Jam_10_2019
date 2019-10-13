@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Levels/Introduction/room.png" type="Texture" id=1]
+[ext_resource path="res://Levels/Introduction/left_pad.png" type="Texture" id=2]
+[ext_resource path="res://Levels/Introduction/right_pad.png" type="Texture" id=3]
+[ext_resource path="res://GameParts/Player/Player.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 74.4088, 276.654 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 451.295, 45.9725 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 74.4597, 267.551 )
+
+[node name="Introduction" type="Node2D"]
+scale = Vector2( 2, 2 )
+
+[node name="room" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="left_pad" type="Sprite" parent="."]
+modulate = Color( 0.521569, 0.301961, 0.470588, 1 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="right_pad" type="Sprite" parent="."]
+modulate = Color( 0.301961, 0.517647, 0.352941, 1 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 556.208, 345.181 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -410.108, 2.26892 )
+rotation = 0.122173
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 37.6832, 290.917 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 22.1024, -257.74 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 416.106, 22.0374 )
+rotation = -0.122173
+shape = SubResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 562.485, 286.191 )
