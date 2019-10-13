@@ -6,7 +6,6 @@
 [sub_resource type="Animation" id=1]
 resource_name = "appear"
 length = 3.0
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:material:shader_param/amount")
 tracks/0/interp = 1
@@ -27,7 +26,6 @@ script = ExtResource( 1 )
 material = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Layer1"]
-autoplay = "appear"
 anims/appear = SubResource( 1 )
 
 [node name="Layer2" type="Node2D" parent="."]
