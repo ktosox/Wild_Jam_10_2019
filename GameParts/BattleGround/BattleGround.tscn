@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://GameParts/BattleGround/BattleGround.gd" type="Script" id=1]
 [ext_resource path="res://ShaderManager.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://GameParts/Dudes/SpittyShelby/Shelby.tscn" type="PackedScene" id=5]
 [ext_resource path="res://GameParts/Interface/Banner_Snake.tscn" type="PackedScene" id=6]
 [ext_resource path="res://GameParts/Interface/Banner_Bat.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Resources/castle.png" type="Texture" id=8]
 
 [node name="BattleGround" type="Node2D"]
 script = ExtResource( 1 )
@@ -26,3 +27,8 @@ position = Vector2( 224.005, 95.3059 )
 
 [node name="Banner_Bat" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1687.09, 95.3059 )
+
+[node name="castle" type="Sprite" parent="."]
+position = Vector2( 404.661, 491.61 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 8 )
