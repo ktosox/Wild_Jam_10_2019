@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var bullet_beam_scene = load("res://GameParts/Player/Bullet_Beam.tscn")
+
+
 var speed = 5
 var friction = 0.86
 var maxSpeed = 80
@@ -12,6 +12,11 @@ var canMove = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
+
+func _input(event):
+	if(event.is_action_pressed("ui_accept")):
+		fire_beam()
+
 
 func getInput():
 	var newDirection = Vector2()
@@ -40,3 +45,8 @@ func _physics_process(delta):
 		direction.y = clamp(direction.y,-maxSpeed,maxSpeed)
 		move_and_slide(direction * speed)
 
+func fire_beam():
+	var bullet = bullet_beam_scene.instance()
+	bullet.global_position = global_position
+	get_parent().add_child(bullet)
+	pass
