@@ -30,7 +30,6 @@ func getInput():
 func _physics_process(delta):
 	if(canMove):
 		var newDirection = getInput()
-		print(newDirection)
 		if(newDirection == Vector2(0,0)):
 			direction *= friction
 		direction += newDirection
