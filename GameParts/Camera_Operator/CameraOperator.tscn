@@ -70,13 +70,17 @@ current = true
 script = ExtResource( 1 )
 
 [node name="Interface" parent="." instance=ExtResource( 2 )]
-margin_right = 1920.0
-margin_bottom = 1080.0
+margin_left = -960.0
+margin_top = -540.0
+margin_right = 960.0
+margin_bottom = 540.0
 
 [node name="ColorBox" type="ColorRect" parent="."]
 modulate = Color( 0, 0, 0, 0 )
-margin_right = 1920.0
-margin_bottom = 1080.0
+margin_left = -960.0
+margin_top = -540.0
+margin_right = 960.0
+margin_bottom = 540.0
 rect_min_size = Vector2( 1920, 1080 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
