@@ -3,9 +3,9 @@ extends KinematicBody2D
 var bullet_beam_scene = load("res://GameParts/Player/Bullet_Beam.tscn")
 
 
-var speed = 5
-var friction = 0.86
-var maxSpeed = 80
+var speed = 26
+var friction = 0.74
+var maxSpeed = 42
 var direction = Vector2()
 var canMove = true
 
@@ -30,17 +30,22 @@ func getInput():
 		newDirection += Vector2(1,0)
 	return newDirection
 
+func get_head_vector():
+	var headVector = Vector2()
+	headVector.x = sin(deg2rad($Head.global_rotation_degrees))
+	headVector.y = cos(deg2rad($Head.global_rotation_degrees+180))
+	return headVector
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if(canMove):
 		var newDirection = getInput()
-		if(newDirection.x == 0):
-			direction.x *= friction
-		if(newDirection.y == 0):
-			direction.y *= friction
-		
-		direction += newDirection + direction.distance_to(newDirection) * newDirection
+		if(newDirection != Vector2(0,0)):
+			$Head.update_direction(newDirection)
+			if(newDirection.distance_to(get_head_vector().round())<0.7):
+				print(get_head_vector().ceil()," : ",newDirection)
+				direction += newDirection 
+		direction *= friction
 		direction.x = clamp(direction.x,-maxSpeed,maxSpeed)
 		direction.y = clamp(direction.y,-maxSpeed,maxSpeed)
 		move_and_slide(direction * speed)
@@ -48,5 +53,13 @@ func _physics_process(delta):
 func fire_beam():
 	var bullet = bullet_beam_scene.instance()
 	bullet.global_position = global_position
+	bullet.rotation = $Head.rotation
 	get_parent().add_child(bullet)
 	pass
+
+func skill_charge():
+	pass
+
+func skill_dodge():
+	pass
+	

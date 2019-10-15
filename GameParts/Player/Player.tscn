@@ -1,12 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://GameParts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://GameParts/Camera_Operator/CameraOperator.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Resources/Particles/effect9.png" type="Texture" id=3]
 [ext_resource path="res://Resources/Particles/effect4.png" type="Texture" id=4]
-[ext_resource path="res://GameParts/Player/Bullet_Beam.tscn" type="PackedScene" id=5]
+[ext_resource path="res://GameParts/Player/Head.gd" type="Script" id=5]
+[ext_resource path="res://Resources/Particles/Pixel_Particle_4.png" type="Texture" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
+radius = 13.473
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
@@ -19,23 +21,25 @@ drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -10 )
+position = Vector2( 0, -0.223267 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="effect9" type="Sprite" parent="."]
+visible = false
 position = Vector2( 0, -10 )
 scale = Vector2( 2.3, 1 )
 texture = ExtResource( 3 )
 
 [node name="effect4" type="Sprite" parent="."]
-position = Vector2( 0, -20 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 4 )
 
-[node name="Bullet_Beam" parent="." instance=ExtResource( 5 )]
-position = Vector2( 71.824, 41.135 )
+[node name="Head" type="Node2D" parent="."]
+script = ExtResource( 5 )
 
-[node name="Bullet_Beam2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 29.7193, 45.1071 )
-rotation = 1.5708
+[node name="Pixel_Particle_4" type="Sprite" parent="Head"]
+position = Vector2( 0, -45 )
+rotation = -0.785398
+scale = Vector2( 5, 5 )
+texture = ExtResource( 6 )
