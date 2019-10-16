@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dizzy2.wav-169c8f7a356000a643cb0633ed760359.sample"
+
+[deps]
+
+source_file="res://Resources/Audio/HomeBrew/dizzy2.wav"
+dest_files=[ "res://.import/dizzy2.wav-169c8f7a356000a643cb0633ed760359.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

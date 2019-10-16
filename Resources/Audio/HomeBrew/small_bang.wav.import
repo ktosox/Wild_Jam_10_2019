@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/small_bang.wav-d67ca4a4a1b2b5290e7095c975c78886.sample"
+
+[deps]
+
+source_file="res://Resources/Audio/HomeBrew/small_bang.wav"
+dest_files=[ "res://.import/small_bang.wav-d67ca4a4a1b2b5290e7095c975c78886.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
