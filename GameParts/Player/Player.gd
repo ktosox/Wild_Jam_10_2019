@@ -32,8 +32,8 @@ func getInput():
 
 func get_head_vector():
 	var headVector = Vector2()
-	headVector.x = sin(deg2rad($Head.global_rotation_degrees))
-	headVector.y = cos(deg2rad($Head.global_rotation_degrees+180))
+	headVector.x = round(sin(deg2rad($Head.global_rotation_degrees)))
+	headVector.y = round(cos(deg2rad($Head.global_rotation_degrees+180)))
 	return headVector
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,7 +42,7 @@ func _physics_process(delta):
 		var newDirection = getInput()
 		if(newDirection != Vector2(0,0)):
 			$Head.update_direction(newDirection)
-			if(newDirection.distance_to(get_head_vector().round())<0.7):
+			if(newDirection.distance_to(get_head_vector().round())<0.3):
 				print(get_head_vector().ceil()," : ",newDirection)
 				direction += newDirection 
 		direction *= friction
