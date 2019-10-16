@@ -24,4 +24,5 @@ func setTeam(newTeam):
 #	pass
 
 func pop():
+	self.queue_free()
 	pass

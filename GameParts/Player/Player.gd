@@ -9,6 +9,10 @@ var maxSpeed = 42
 var direction = Vector2()
 var canMove = true
 
+var invunrability = false
+
+var skill1_on_cooldown = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -43,7 +47,7 @@ func _physics_process(delta):
 		if(newDirection != Vector2(0,0)):
 			$Head.update_direction(newDirection)
 			if(newDirection.distance_to(get_head_vector().round())<0.3):
-				print(get_head_vector().ceil()," : ",newDirection)
+				#print(get_head_vector().ceil()," : ",newDirection)
 				direction += newDirection 
 		direction *= friction
 		direction.x = clamp(direction.x,-maxSpeed,maxSpeed)
@@ -57,9 +61,31 @@ func fire_beam():
 	get_parent().add_child(bullet)
 	pass
 
+func invunrableStart():
+	invunrability = true
+
+func invunrableStop():
+	invunrability = false
+	
+	
 func skill_charge():
 	pass
 
 func skill_dodge():
 	pass
 	
+func damange():
+	print("ouch")
+	pass
+
+func _on_HitBox_body_entered(body):
+	if(body.get_collision_layer_bit(4) or body.get_collision_layer_bit(6)):
+		#this is a bullet
+		if(!invunrability):
+			damange()
+			body.pop()
+	if(body.get_collision_layer_bit(3) or body.get_collision_layer_bit(5)):
+		#this is a dude
+		if(!invunrability):
+			damange()
+

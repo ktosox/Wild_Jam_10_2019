@@ -9,7 +9,7 @@ height = 15.0
 
 [node name="Bullet_Beam" type="RigidBody2D"]
 collision_layer = 0
-collision_mask = 100
+collision_mask = 84
 gravity_scale = 0.0
 script = ExtResource( 1 )
 
@@ -20,3 +20,8 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.3, 1 )
 texture = ExtResource( 2 )
+
+[node name="TimerLifeTime" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+[connection signal="timeout" from="TimerLifeTime" to="." method="_on_TimerLifeTime_timeout"]
