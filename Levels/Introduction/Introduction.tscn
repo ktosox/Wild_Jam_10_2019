@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Levels/Introduction/room.png" type="Texture" id=1]
 [ext_resource path="res://Resources/GATE.png" type="Texture" id=2]
 [ext_resource path="res://Levels/Introduction/left_pad.png" type="Texture" id=3]
 [ext_resource path="res://Levels/Introduction/right_pad.png" type="Texture" id=4]
 [ext_resource path="res://GameParts/Player/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://GameParts/Dudes/CanonCarl/CanonCarl.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 63.9337
@@ -95,3 +96,6 @@ shape = SubResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 967.418, 492.774 )
+
+[node name="CanonCarl" parent="." instance=ExtResource( 6 )]
+position = Vector2( 536.306, 668.148 )
