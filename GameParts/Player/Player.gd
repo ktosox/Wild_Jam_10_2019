@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
 var bullet_beam_scene = load("res://GameParts/Player/Bullet_Beam.tscn")
+var bullet_wave_scene = load("res://GameParts/Player/Bullet_Wave.tscn")
 
-
-var speed = 26
+var speed = 60
 var friction = 0.74
 var maxSpeed = 42
 var direction = Vector2()
@@ -18,9 +18,12 @@ func _ready():
 	pass # Replace with function body.
 
 func _input(event):
-	if(event.is_action_pressed("ui_accept")):
+	if(event.is_action_pressed("player_attack")):
 		fire_beam()
-
+	if(event.is_action_pressed("player_flash")):
+		skill_flash()
+	if(event.is_action_pressed("player_skill1")):
+		skill_dodge()
 
 func getInput():
 	var newDirection = Vector2()
@@ -72,8 +75,14 @@ func skill_charge():
 	pass
 
 func skill_dodge():
+	print("dodge")
 	pass
 	
+	
+func skill_flash():
+	print("flash")
+	pass
+
 func damange():
 	print("ouch")
 	pass
@@ -88,4 +97,9 @@ func _on_HitBox_body_entered(body):
 		#this is a dude
 		if(!invunrability):
 			damange()
+
+
+
+func _on_Timer_timeout():
+	SM.setShadowCeneter(global_position)
 

@@ -1,16 +1,27 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=2]
 
 [sub_resource type="Shader" id=1]
-code = "shader_type canvas_item;	
-render_mode blend_mix;	
-uniform float amount = 2.0;	
-void fragment() {	
-	float a = fract(sin(dot(UV, vec2(134.128, 63.773))) * (538.71+0.3*sin(TIME)+2.7*cos(TIME)-5.0*sin(TIME)));
-	vec4 col = texture(TEXTURE, UV);
-	col.a *= pow(a, amount);
-	COLOR = col;
-}	"
+code = "	shader_type canvas_item;	
+	render_mode blend_mix;	
+		
+	uniform vec2 center = vec2(0.0, 0.0);	
+	
+	mat2 scale(vec2 scaleCenter){
+			return mat2(vec2(scaleCenter.x,0.0), vec2(0.0, scaleCenter.y));
+			}
+	mat2 rotate(float rotAngle){
+		return mat2(vec2(cos(rotAngle),-sin(rotAngle)), vec2(sin(rotAngle),cos(rotAngle)));
+		
+	}
+	float getAngle(vec2 target, vec2 source){
+		return 1.0;
+	}
+	void fragment() {	
+
+		
+		COLOR = texture(TEXTURE, rotate(atan(abs(SCREEN_UV.x-center.x),abs(SCREEN_UV.y-center.y)))*UV); // (scale(SCREEN_UV))
+	}	"
 
 [resource]
 shader = SubResource( 1 )
-shader_param/amount = 120.0
+shader_param/center = Vector2( 0.66, 1.7 )

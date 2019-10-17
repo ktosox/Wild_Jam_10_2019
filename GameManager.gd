@@ -10,6 +10,8 @@ var currentCamera
 
 var currentPlayer
 
+var teamPlayer
+
 var currentLevel = 1
 
 #------------------------------------------------
