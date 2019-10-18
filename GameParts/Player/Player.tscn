@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://GameParts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://GameParts/Camera_Operator/CameraOperator.tscn" type="PackedScene" id=2]
@@ -6,12 +6,30 @@
 [ext_resource path="res://Resources/Particles/effect4.png" type="Texture" id=4]
 [ext_resource path="res://GameParts/Player/Head.gd" type="Script" id=5]
 [ext_resource path="res://Resources/Particles/Pixel_Particle_4.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Particles/effect_un_light_2.png" type="Texture" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 13.473
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 16.9162
+
+[sub_resource type="Animation" id=3]
+resource_name = "Flash"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 0.5 ),
+"update": 0,
+"values": [ 8.0, 1.0 ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
@@ -55,5 +73,17 @@ shape = SubResource( 2 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="Flash" type="Light2D" parent="."]
+texture = ExtResource( 7 )
+texture_scale = 1.53295
+color = Color( 1, 1, 1, 0 )
+energy = 12.0
+mode = 3
+range_item_cull_mask = 2
+
+[node name="Animate" type="AnimationPlayer" parent="Flash"]
+autoplay = "Flash"
+anims/Flash = SubResource( 3 )
 [connection signal="body_entered" from="HitBox" to="." method="_on_HitBox_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -14,13 +14,14 @@ func _ready():
 #	pass
 
 func open_fire(target):
+	$Canon/Animation_Node/AnimationPlayer.play("aim")
 	$Canon.rotation = atan2(target.x-global_position.x,global_position.y-target.y)-rotation
 	fire_bullet()
 
 func fire_bullet():
 	var bullet = bulletScene.instance()
 	bullet.setTeam(team)
-	bullet.global_position = $Canon/Outlet.global_position
+	bullet.global_position = $Canon/Animation_Node/Outlet.global_position
 	bullet.rotation = $Canon.rotation + rotation
 	get_parent().add_child(bullet)
 

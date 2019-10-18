@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://GameParts/Dudes/CanonCarl/CanonCarl.gd" type="Script" id=1]
 [ext_resource path="res://GameParts/Dudes/Shadow.tscn" type="PackedScene" id=2]
@@ -14,6 +14,39 @@ radius = 61.9997
 [sub_resource type="Animation" id=3]
 resource_name = "AttackFire"
 length = 0.7
+
+[sub_resource type="Animation" id=5]
+resource_name = "aim"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, -0.5, 2 ),
+"update": 0,
+"values": [ -15.0, 5.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "idle"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.5, 2.5, 3 ),
+"transitions": PoolRealArray( -0.5, -2, -0.5, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 50.0, 0.0, -50.0, 0.0 ]
+}
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 207.41
@@ -48,14 +81,21 @@ anims/AttackFire = SubResource( 3 )
 
 [node name="Canon" type="Node2D" parent="."]
 
-[node name="Outlet" type="Position2D" parent="Canon"]
-position = Vector2( -0.794434, -80.6345 )
+[node name="Animation_Node" type="Node2D" parent="Canon"]
 
-[node name="canon4" type="Sprite" parent="Canon"]
+[node name="canon4" type="Sprite" parent="Canon/Animation_Node"]
 position = Vector2( 2.09503, -55.867 )
-rotation = 4.71239
+rotation = -1.5708
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 4 )
+
+[node name="Outlet" type="Position2D" parent="Canon/Animation_Node"]
+position = Vector2( -0.794434, -80.6345 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Canon/Animation_Node"]
+autoplay = "idle"
+anims/aim = SubResource( 5 )
+anims/idle = SubResource( 6 )
 
 [node name="DetectionRange" type="Area2D" parent="."]
 collision_layer = 0
