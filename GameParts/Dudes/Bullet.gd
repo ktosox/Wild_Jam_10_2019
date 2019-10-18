@@ -26,3 +26,8 @@ func setTeam(newTeam):
 func pop():
 	self.queue_free()
 	pass
+
+
+func _on_Timer_timeout():
+	pop()
+	pass # Replace with function body.

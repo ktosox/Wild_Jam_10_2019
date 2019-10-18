@@ -2,7 +2,7 @@
 
 [ext_resource path="res://GameParts/Dudes/CanonCarl/CanonCarl.gd" type="Script" id=1]
 [ext_resource path="res://GameParts/Dudes/Shadow.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Resources/Raws/turret2.png" type="Texture" id=3]
+[ext_resource path="res://Resources/banner_1.png" type="Texture" id=3]
 [ext_resource path="res://Resources/canon4.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -32,8 +32,9 @@ visible = false
 shape = SubResource( 1 )
 
 [node name="turret2" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 0, -15 )
-scale = Vector2( 0.1, 0.1 )
+scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 3 )
 
 [node name="HitBox" type="Area2D" parent="."]

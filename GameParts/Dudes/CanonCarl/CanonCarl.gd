@@ -9,21 +9,19 @@ func _ready():
 	randomize()
 	setTeam(randi()%2)
 
-	
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
 func open_fire(target):
-	$Canon.rotation = atan2(target.x-global_position.x,global_position.y-target.y)
+	$Canon.rotation = atan2(target.x-global_position.x,global_position.y-target.y)-rotation
 	fire_bullet()
 
 func fire_bullet():
 	var bullet = bulletScene.instance()
 	bullet.setTeam(team)
 	bullet.global_position = $Canon/Outlet.global_position
-	bullet.rotation = $Canon.rotation
+	bullet.rotation = $Canon.rotation + rotation
 	get_parent().add_child(bullet)
 
 func setTeam(newTeam):

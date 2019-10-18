@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://GameParts/Dudes/SpinySophie/SpinySophie.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Particles/effect6.png" type="Texture" id=2]
+[ext_resource path="res://GameParts/Dudes/Shadow.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Resources/Particles/effect6.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 12.9103
@@ -11,33 +12,89 @@ radius = 16.5271
 
 [sub_resource type="Animation" id=3]
 resource_name = "SpinStart"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 0.5, -0.5 ),
+"update": 0,
+"values": [ -110.0, 260.0, 360.0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "attack_spin"
+} ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "SpinWindUp"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -110.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer:current_animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.9 ),
+"transitions": PoolRealArray( 1 ),
+"update": 2,
+"values": [ "SpinStart" ]
+}
 
 [node name="SpinySophie" type="RigidBody2D"]
 collision_layer = 0
-collision_mask = 126
+collision_mask = 86
 gravity_scale = 0.0
 script = ExtResource( 1 )
+
+[node name="Shadow" parent="." instance=ExtResource( 2 )]
+scale = Vector2( 2, 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="Body" type="Node2D" parent="."]
+rotation = 6.28319
 
 [node name="effect6" type="Sprite" parent="Body"]
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Marks" type="Node2D" parent="."]
 
 [node name="Face" type="Node2D" parent="."]
 
 [node name="TimerBored" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
+wait_time = 4.0
+autostart = true
 
 [node name="HitBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource( 2 )
@@ -45,4 +102,7 @@ shape = SubResource( 2 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/SpinStart = SubResource( 3 )
 anims/SpinWindUp = SubResource( 4 )
+
+[node name="Outlet" type="Position2D" parent="."]
+position = Vector2( 0, 18.3077 )
 [connection signal="timeout" from="TimerBored" to="." method="_on_TimerBored_timeout"]
