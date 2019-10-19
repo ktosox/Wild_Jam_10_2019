@@ -10,7 +10,7 @@ var currentCamera
 
 var currentPlayer
 
-var teamPlayer
+var teamPlayer = randi()%2
 
 var currentLevel = 1
 
@@ -26,7 +26,7 @@ var mainMenuPath = "res://Key_Scenes/MainMenu/MainMenu.tscn"
 
 var gamePath = "res://Key_Scenes/Game/Game.tscn"
 
-var pauseMenuScene = load("res://Game_Parts/PauseMenu/PauseMenu.tscn")
+var pauseMenuScene = load("res://GameParts/PauseMenu/PauseMenu.tscn")
 
 var gameOverMenuScene = load("res://Key_Scenes/GameOverMenu/GameOverMenu.tscn")
 

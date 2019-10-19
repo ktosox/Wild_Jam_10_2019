@@ -11,19 +11,25 @@ var canMove = true
 
 var invunrability = false
 
-var skill1_on_cooldown = false
+var skill_1_ready = true #dodge / roll on CD
+var skill_flash_ready = true #slash on CD
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GM.currentCamera = $CameraOperator
 	pass # Replace with function body.
 
 func _input(event):
+	if(event.is_action_pressed("ui_cancel")):
+		GM.pause_game()
 	if(event.is_action_pressed("player_attack")):
 		fire_beam()
 	if(event.is_action_pressed("player_flash")):
-		skill_flash()
+		if(skill_flash_ready):
+			skill_flash()
 	if(event.is_action_pressed("player_skill1")):
-		skill_dodge()
+		if(skill_1_ready):
+			skill_dodge()
 
 func getInput():
 	var newDirection = Vector2()
@@ -72,6 +78,7 @@ func invunrableStop():
 	
 	
 func skill_charge():
+	print("charge")
 	pass
 
 func skill_dodge():
@@ -81,25 +88,25 @@ func skill_dodge():
 	
 func skill_flash():
 	print("flash")
+	$CameraOperator.colorSplash(1.2)
+	$Flash1/Animate.play("Flash")
 	pass
 
 func damange():
 	print("ouch")
+	$DamangeAnimator.play("blink")
 	pass
 
 func _on_HitBox_body_entered(body):
-	if(body.get_collision_layer_bit(4) or body.get_collision_layer_bit(6)):
+	if(body.get_collision_layer_bit(3) or body.get_collision_layer_bit(5)):
 		#this is a bullet
 		if(!invunrability):
 			damange()
 			body.pop()
-	if(body.get_collision_layer_bit(3) or body.get_collision_layer_bit(5)):
+	if(body.get_collision_layer_bit(2) or body.get_collision_layer_bit(4)):
 		#this is a dude
 		if(!invunrability):
 			damange()
 
 
-
-func _on_Timer_timeout():
-	SM.setShadowCeneter(global_position)
 

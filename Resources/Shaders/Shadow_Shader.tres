@@ -24,4 +24,4 @@ code = "	shader_type canvas_item;
 
 [resource]
 shader = SubResource( 1 )
-shader_param/center = Vector2( 0.66, 1.7 )
+shader_param/center = Vector2( 500, 50 )
