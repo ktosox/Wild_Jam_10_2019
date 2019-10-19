@@ -2,7 +2,7 @@
 
 [ext_resource path="res://GameParts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://GameParts/Camera_Operator/CameraOperator.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Resources/Particles/effect4.png" type="Texture" id=3]
+[ext_resource path="res://Resources/character.png" type="Texture" id=3]
 [ext_resource path="res://GameParts/Player/Head.gd" type="Script" id=4]
 [ext_resource path="res://Resources/Particles/Pixel_Particle_4.png" type="Texture" id=5]
 [ext_resource path="res://Resources/Particles/effect_un_light_2.png" type="Texture" id=6]
@@ -121,6 +121,8 @@ shape = SubResource( 1 )
 [node name="effect4" type="Sprite" parent="."]
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 64 )
 
 [node name="Head" type="Node2D" parent="."]
 script = ExtResource( 4 )

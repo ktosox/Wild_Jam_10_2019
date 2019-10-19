@@ -57,6 +57,16 @@ func _physics_process(delta):
 			$Head.update_direction(newDirection)
 			if(newDirection.distance_to(get_head_vector().round())<0.3):
 				#print(get_head_vector().ceil()," : ",newDirection)
+				if(newDirection.y == -1):
+					$effect4.region_rect.position.x = 128
+				else:
+					$effect4.region_rect.position.x = 0
+				if(newDirection.x != 0):
+					$effect4.region_rect.position.x = 64
+				if(newDirection.x ==1):
+					$effect4.scale.x = 1.5
+				if(newDirection.x == -1):
+					$effect4.scale.x = -1.5
 				direction += newDirection 
 		direction *= friction
 		direction.x = clamp(direction.x,-maxSpeed,maxSpeed)
