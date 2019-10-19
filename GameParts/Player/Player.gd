@@ -90,6 +90,7 @@ func skill_flash():
 	print("flash")
 	$CameraOperator.colorSplash(1.2)
 	$Flash1/Animate.play("Flash")
+	$Flash2/Animate.play("Flash")
 	pass
 
 func damange():

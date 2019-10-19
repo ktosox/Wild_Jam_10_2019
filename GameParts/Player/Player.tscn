@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://GameParts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://GameParts/Camera_Operator/CameraOperator.tscn" type="PackedScene" id=2]
@@ -42,11 +42,10 @@ radius = 17.8272
 height = 5.52137
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 27.8084
+radius = 24.2818
 
 [sub_resource type="Animation" id=3]
 resource_name = "Flash"
-length = 1.4
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:shadow_gradient_length")
 tracks/0/interp = 1
@@ -54,7 +53,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 1.4 ),
+"times": PoolRealArray( 0, 0.7, 1 ),
 "transitions": PoolRealArray( 1, -2, 2 ),
 "update": 0,
 "values": [ 1.0, 15.0, 1200.0 ]
@@ -66,7 +65,34 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1.3 ),
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Flash"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:shadow_gradient_length")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 1 ),
+"transitions": PoolRealArray( 1, -2, 2 ),
+"update": 0,
+"values": [ 1.0, 15.0, 1200.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -121,10 +147,26 @@ range_item_cull_mask = 2
 shadow_enabled = true
 shadow_color = Color( 0.501961, 0.247059, 0.439216, 1 )
 shadow_buffer_size = 512
-shadow_gradient_length = 77.0
+shadow_gradient_length = 1200.0
 shadow_filter_smooth = 1.0
 shadow_item_cull_mask = 2
 
 [node name="Animate" type="AnimationPlayer" parent="Flash1"]
 anims/Flash = SubResource( 3 )
+
+[node name="Flash2" type="Light2D" parent="."]
+enabled = false
+texture = ExtResource( 6 )
+color = Color( 1, 1, 1, 0 )
+mode = 3
+range_item_cull_mask = 2
+shadow_enabled = true
+shadow_color = Color( 0.207843, 0.698039, 0.333333, 1 )
+shadow_buffer_size = 512
+shadow_gradient_length = 1.0
+shadow_filter_smooth = 1.0
+shadow_item_cull_mask = 4
+
+[node name="Animate" type="AnimationPlayer" parent="Flash2"]
+anims/Flash = SubResource( 5 )
 [connection signal="body_entered" from="HitBox" to="." method="_on_HitBox_body_entered"]

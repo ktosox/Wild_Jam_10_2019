@@ -27,3 +27,9 @@ scale = Vector2( 2.41, 2.1 )
 
 [node name="SpinySophie" parent="." instance=ExtResource( 5 )]
 position = Vector2( 600.362, 596.429 )
+
+[node name="SpinySophie2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 175.292, 418.563 )
+
+[node name="SpinySophie3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 232.571, 637.128 )
