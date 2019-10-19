@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://GameParts/Dudes/SpringySam/SpringySam.gd" type="Script" id=1]
+[ext_resource path="res://GameParts/Dudes/Shadow.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Resources/snek.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 10.5895
+height = 40.1197
+
+[sub_resource type="Animation" id=2]
+resource_name = "animate"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 2, -0.5, 0.5 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 15 ), Vector2( 0, -6 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 2, -0.5, 0.5 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0.4 ), Vector2( 0.75, 1.7 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "move"
+}, {
+"args": [  ],
+"method": "stop"
+} ]
+}
+
+[node name="SpringySam" type="RigidBody2D"]
+mass = 20.0
+gravity_scale = 0.0
+script = ExtResource( 1 )
+
+[node name="Shadow" parent="." instance=ExtResource( 2 )]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 18 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="TimerBored" type="Timer" parent="."]
+wait_time = 6.0
+
+[node name="Jump" type="AnimationPlayer" parent="."]
+anims/animate = SubResource( 2 )
+[connection signal="timeout" from="TimerBored" to="." method="_on_TimerBored_timeout"]

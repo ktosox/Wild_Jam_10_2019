@@ -38,11 +38,12 @@ tracks/1/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 17.8272
-height = 5.52137
+radius = 14.6457
+height = 11.9342
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 24.2818
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 24.6996
+height = 38.0112
 
 [sub_resource type="Animation" id=3]
 resource_name = "Flash"
@@ -113,11 +114,6 @@ anchor_mode = 1
 drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -0.223267 )
-rotation = 1.5708
-shape = SubResource( 1 )
-
 [node name="effect4" type="Sprite" parent="."]
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 3 )
@@ -133,12 +129,19 @@ rotation = -0.785398
 scale = Vector2( 5, 5 )
 texture = ExtResource( 5 )
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 30 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
 [node name="HitBox" type="Area2D" parent="."]
+position = Vector2( 0, 5 )
 collision_layer = 2
 collision_mask = 60
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-shape = SubResource( 2 )
+position = Vector2( 0, 1.02169 )
+shape = SubResource( 6 )
 
 [node name="Flash1" type="Light2D" parent="."]
 enabled = false
