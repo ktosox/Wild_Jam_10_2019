@@ -2,12 +2,12 @@
 
 [ext_resource path="res://GameParts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://GameParts/Camera_Operator/CameraOperator.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Resources/character.png" type="Texture" id=3]
+[ext_resource path="res://Resources/character2.png" type="Texture" id=3]
 [ext_resource path="res://GameParts/Player/Head.gd" type="Script" id=4]
 [ext_resource path="res://Resources/Particles/Pixel_Particle_4.png" type="Texture" id=5]
 [ext_resource path="res://Resources/Particles/effect_un_light_2.png" type="Texture" id=6]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 resource_name = "blink"
 length = 1.1
 tracks/0/type = "value"
@@ -37,16 +37,15 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 14.6457
 height = 11.9342
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 24.6996
 height = 38.0112
 
-[sub_resource type="Animation" id=3]
-resource_name = "Flash"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:shadow_gradient_length")
 tracks/0/interp = 1
@@ -105,7 +104,7 @@ collision_mask = 40
 script = ExtResource( 1 )
 
 [node name="DamangeAnimator" type="AnimationPlayer" parent="."]
-anims/blink = SubResource( 4 )
+anims/blink = SubResource( 1 )
 
 [node name="CameraOperator" parent="." instance=ExtResource( 2 )]
 z_index = 500
@@ -132,7 +131,7 @@ texture = ExtResource( 5 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 30 )
 rotation = 1.5708
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="HitBox" type="Area2D" parent="."]
 position = Vector2( 0, 5 )
@@ -141,7 +140,7 @@ collision_mask = 60
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2( 0, 1.02169 )
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 
 [node name="Flash1" type="Light2D" parent="."]
 enabled = false
@@ -157,7 +156,7 @@ shadow_filter_smooth = 1.0
 shadow_item_cull_mask = 2
 
 [node name="Animate" type="AnimationPlayer" parent="Flash1"]
-anims/Flash = SubResource( 3 )
+anims/Flash = SubResource( 4 )
 
 [node name="Flash2" type="Light2D" parent="."]
 enabled = false

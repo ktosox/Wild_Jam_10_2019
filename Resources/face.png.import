@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/snek.png-e3aad92465c06b1d6056b1fed159e086.stex"
+path="res://.import/face.png-7f38b3484dc80e7e75149542beab504d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/snek.png"
-dest_files=[ "res://.import/snek.png-e3aad92465c06b1d6056b1fed159e086.stex" ]
+source_file="res://Resources/face.png"
+dest_files=[ "res://.import/face.png-7f38b3484dc80e7e75149542beab504d.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

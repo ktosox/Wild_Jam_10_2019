@@ -9,7 +9,7 @@ polygon = PoolVector2Array( 0, 12, -6.07232, 10.3331, -9.9563, 6.09413, -12, 0, 
 [node name="Shadow" type="Sprite"]
 self_modulate = Color( 1, 1, 1, 0 )
 light_mask = 6
-scale = Vector2( 2, 2 )
+scale = Vector2( 2, 1 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 

@@ -14,6 +14,10 @@ var teamPlayer = randi()%2
 
 var currentLevel = 1
 
+const color1 = Color(0.21,0.7,0.33)
+
+const color0 = Color(0.5,0.25,0.44)
+
 #------------------------------------------------
 
 # Paths to key scenes

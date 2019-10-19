@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/snek.png-e3aad92465c06b1d6056b1fed159e086.stex"
+path="res://.import/character2.png-9d80efb2db0cc888d00fda2a6d02a975.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/snek.png"
-dest_files=[ "res://.import/snek.png-e3aad92465c06b1d6056b1fed159e086.stex" ]
+source_file="res://Resources/character2.png"
+dest_files=[ "res://.import/character2.png-9d80efb2db0cc888d00fda2a6d02a975.stex" ]
 
 [params]
 

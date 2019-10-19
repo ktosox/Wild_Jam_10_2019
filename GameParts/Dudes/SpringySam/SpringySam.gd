@@ -6,6 +6,7 @@ var team
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	setTeam(randi()%2)
 	do_stuff()
 	pass # Replace with function body.
 
@@ -35,11 +36,19 @@ func setTeam(newTeam):
 	$Shadow.setTeam(team)
 	if (team == 1):
 		set_collision_layer_bit(2, true)
+
 	else:
 		set_collision_layer_bit(4, true)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+
+func _process(delta):
+	if ($Sprite.global_rotation !=0):
+		applied_torque = - $Sprite.global_rotation *50000
+	linear_velocity *= 0.9 + (0.1*delta)
+	pass
+
+
+
 func move():
 	var direction = randf()*2*PI
 	var distance = 1700
