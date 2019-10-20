@@ -105,4 +105,25 @@ position = Vector2( 355.119, 252.613 )
 team = 0
 
 [node name="JumpingJeffrey" parent="." instance=ExtResource( 10 )]
-position = Vector2( 611.978, 679.992 )
+position = Vector2( 611.978, 680.992 )
+team = 1
+
+[node name="JumpingJeffrey6" parent="." instance=ExtResource( 10 )]
+position = Vector2( 794.82, 396.181 )
+team = 1
+
+[node name="JumpingJeffrey5" parent="." instance=ExtResource( 10 )]
+position = Vector2( 182.633, 510.734 )
+team = 1
+
+[node name="JumpingJeffrey2" parent="." instance=ExtResource( 10 )]
+position = Vector2( -99.1066, 357.444 )
+team = 0
+
+[node name="JumpingJeffrey4" parent="." instance=ExtResource( 10 )]
+position = Vector2( 222.625, 46.261 )
+team = 0
+
+[node name="JumpingJeffrey3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1317.92, 111.311 )
+team = 0

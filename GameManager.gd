@@ -90,9 +90,9 @@ func resetLevel():
 		2:
 			get_tree().change_scene("res://Levels/Cheese/Cheese.tscn")
 		3:
-			changeToCredits()
+			get_tree().change_scene("res://Levels/Warehouse/Warehouse.tscn")
 		4:
-			pass
+			changeToCredits()
 		5:
 			changeToCredits()
 
