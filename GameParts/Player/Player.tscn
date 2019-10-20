@@ -1,14 +1,15 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://GameParts/Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://GameParts/Camera_Operator/CameraOperator.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Resources/character2.png" type="Texture" id=3]
-[ext_resource path="res://GameParts/Player/Head.gd" type="Script" id=4]
-[ext_resource path="res://Resources/Particles/effect16.png" type="Texture" id=5]
-[ext_resource path="res://Resources/Particles/Pixel_Particle_5.png" type="Texture" id=6]
-[ext_resource path="res://Resources/Audio/HomeBrew/ouch.wav" type="AudioStream" id=7]
-[ext_resource path="res://Resources/Particles/effect_un_light_2.png" type="Texture" id=8]
-[ext_resource path="res://Resources/Audio/HomeBrew/click_confirmed.wav" type="AudioStream" id=9]
+[ext_resource path="res://Resources/Audio/GDC2019/swoosh_meta_L_R_006.wav" type="AudioStream" id=2]
+[ext_resource path="res://GameParts/Camera_Operator/CameraOperator.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Resources/character2.png" type="Texture" id=4]
+[ext_resource path="res://GameParts/Player/Head.gd" type="Script" id=5]
+[ext_resource path="res://Resources/Particles/effect16.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Particles/Pixel_Particle_5.png" type="Texture" id=7]
+[ext_resource path="res://Resources/Audio/HomeBrew/ouch.wav" type="AudioStream" id=8]
+[ext_resource path="res://Resources/Particles/effect_un_light_2.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Audio/HomeBrew/click_confirmed.wav" type="AudioStream" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "anim"
@@ -77,6 +78,20 @@ tracks/1/keys = {
 "values": [ {
 "args": [  ],
 "method": "invunrableStop"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("DamangeAnimator/Oof")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
 } ]
 }
 
@@ -151,7 +166,13 @@ anims/anim = SubResource( 1 )
 [node name="DamangeAnimator" type="AnimationPlayer" parent="."]
 anims/blink = SubResource( 2 )
 
-[node name="CameraOperator" parent="." instance=ExtResource( 2 )]
+[node name="Oof" type="AudioStreamPlayer2D" parent="DamangeAnimator"]
+stream = ExtResource( 2 )
+pitch_scale = 1.2
+attenuation = 0.615572
+bus = "Effects"
+
+[node name="CameraOperator" parent="." instance=ExtResource( 3 )]
 z_index = 500
 z_as_relative = false
 anchor_mode = 1
@@ -159,17 +180,17 @@ drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 
 [node name="effect4" type="Sprite" parent="."]
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 64, 64 )
 
 [node name="Head" type="Node2D" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 
 [node name="Pixel_Particle_4" type="Sprite" parent="Head"]
 position = Vector2( 0, -39.448 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="outlet" type="Position2D" parent="Head"]
 position = Vector2( 0, -39.5396 )
@@ -178,7 +199,7 @@ position = Vector2( 0, -39.5396 )
 position = Vector2( 0, -0.00506592 )
 rotation = -1.5708
 amount = 3
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 spread = 0.7
 gravity = Vector2( 0, 0 )
 initial_velocity = 120.0
@@ -187,7 +208,7 @@ radial_accel = 50.0
 damping = 100.0
 
 [node name="Blast" type="AudioStreamPlayer2D" parent="Head"]
-stream = ExtResource( 7 )
+stream = ExtResource( 8 )
 bus = "Effects"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -205,7 +226,7 @@ shape = SubResource( 4 )
 
 [node name="Flash1" type="Light2D" parent="."]
 enabled = false
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 color = Color( 1, 1, 1, 0 )
 mode = 3
 range_item_cull_mask = 2
@@ -221,7 +242,7 @@ anims/Flash = SubResource( 5 )
 
 [node name="Flash2" type="Light2D" parent="."]
 enabled = false
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 color = Color( 1, 1, 1, 0 )
 mode = 3
 range_item_cull_mask = 2
@@ -244,7 +265,7 @@ wait_time = 6.0
 one_shot = true
 
 [node name="Flash" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 9 )
+stream = ExtResource( 10 )
 pitch_scale = 0.5
 bus = "Effects"
 [connection signal="body_entered" from="HitBox" to="." method="_on_HitBox_body_entered"]

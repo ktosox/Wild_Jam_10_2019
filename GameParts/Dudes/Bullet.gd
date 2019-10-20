@@ -7,7 +7,7 @@ extends RigidBody2D
 var team
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	linear_velocity = 270.0 * Vector2(sin(deg2rad(global_rotation_degrees)),cos(deg2rad(global_rotation_degrees+180)))
+	linear_velocity = 290.0 * Vector2(sin(deg2rad(global_rotation_degrees)),cos(deg2rad(global_rotation_degrees+180)))
 	pass # Replace with function body.
 
 func setTeam(newTeam):

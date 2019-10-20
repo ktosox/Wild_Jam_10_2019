@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 var bullet_wave_scene = load("res://GameParts/Player/Bullet_Wave.tscn")
 
-var HP = 3
+var HP = 4
 var speed = 60
 var friction = 0.79
 var maxSpeed = 42
