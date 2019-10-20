@@ -1,13 +1,15 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Levels/Warehouse/Warehouse.gd" type="Script" id=1]
 [ext_resource path="res://Levels/Room_statics.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/room_2-long.png" type="Texture" id=3]
 [ext_resource path="res://GameParts/Gates/Gate_North.tscn" type="PackedScene" id=4]
-[ext_resource path="res://GameParts/Environment/Big_Hole.tscn" type="PackedScene" id=5]
-[ext_resource path="res://GameParts/Environment/Block.tscn" type="PackedScene" id=6]
-[ext_resource path="res://GameParts/Environment/Small_Hole.tscn" type="PackedScene" id=7]
+[ext_resource path="res://GameParts/Environment/Block.tscn" type="PackedScene" id=5]
+[ext_resource path="res://GameParts/Environment/Big_Hole.tscn" type="PackedScene" id=6]
+[ext_resource path="res://GameParts/Environment/Barrel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://GameParts/Player/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://GameParts/Dudes/SpringySam/SpringySam.tscn" type="PackedScene" id=9]
+[ext_resource path="res://GameParts/Dudes/JumpingJeffrey/JumpingJeffrey.tscn" type="PackedScene" id=10]
 
 [node name="Warehouse" type="Node2D"]
 script = ExtResource( 1 )
@@ -24,44 +26,83 @@ texture = ExtResource( 3 )
 position = Vector2( 1073.68, -57.2415 )
 
 [node name="Tips" type="Node2D" parent="."]
-visible = false
 modulate = Color( 1, 1, 0.8, 1 )
 scale = Vector2( 2, 2 )
 
-[node name="Label" type="Label" parent="Tips"]
-margin_left = 32.6491
-margin_top = 36.0501
-margin_right = 128.649
-margin_bottom = 84.0501
-text = "press SPACE 
-to pew pew
-"
-
 [node name="Label2" type="Label" parent="Tips"]
-margin_left = 178.227
-margin_top = 187.855
-margin_right = 305.227
-margin_bottom = 235.855
-text = "destroy all enemies
-to continue
-"
+margin_left = -116.899
+margin_top = 18.3767
+margin_right = 10.101
+margin_bottom = 66.3767
+text = "Please note this level was added
+after the Jam submission deadline  "
 
-[node name="Big_Hole" parent="." instance=ExtResource( 5 )]
-position = Vector2( 515.009, 153.417 )
-
-[node name="Block" parent="." instance=ExtResource( 6 )]
+[node name="Block" parent="." instance=ExtResource( 5 )]
 position = Vector2( 221.006, 395.342 )
 scale = Vector2( 2, 2 )
 
-[node name="Big_Hole2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 452.002, 281.001 )
+[node name="Block3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 663.208, 247.292 )
+scale = Vector2( 2, 2 )
 
-[node name="Block2" parent="." instance=ExtResource( 6 )]
+[node name="Block4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 349.576, 108.982 )
+scale = Vector2( 2, 2 )
+
+[node name="Block5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 793.726, 247.292 )
+scale = Vector2( 2, 2 )
+
+[node name="Block6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 534.638, 249.24 )
+scale = Vector2( 2, 2 )
+
+[node name="Block7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 669.052, 375.862 )
+scale = Vector2( 2, 2 )
+
+[node name="Big_Hole2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 827.971, 499.18 )
+
+[node name="Block2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 503.777, 486.349 )
 scale = Vector2( 2, 2 )
 
-[node name="Small_Hole" parent="." instance=ExtResource( 7 )]
-position = Vector2( 557.647, 31.668 )
+[node name="Barrel" parent="." instance=ExtResource( 7 )]
+position = Vector2( 328.741, 546.558 )
+
+[node name="Barrel2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 137.184, 278.987 )
+scale = Vector2( 2, 2 )
+
+[node name="Barrel3" parent="." instance=ExtResource( 7 )]
+position = Vector2( -51.5478, 546.218 )
+scale = Vector2( 2, 2 )
+
+[node name="Barrel4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 852.025, 639.748 )
+
+[node name="Barrel5" parent="." instance=ExtResource( 7 )]
+position = Vector2( 545.674, 30.8518 )
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
-position = Vector2( -128.601, 178.586 )
+position = Vector2( -96.2238, 165.635 )
+
+[node name="SpringySam" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1313.48, 457.669 )
+team = 1
+
+[node name="SpringySam3" parent="." instance=ExtResource( 9 )]
+position = Vector2( -195.293, 606.604 )
+team = 1
+
+[node name="SpringySam2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 741.486, 82.0935 )
+team = 0
+
+[node name="SpringySam4" parent="." instance=ExtResource( 9 )]
+position = Vector2( 355.119, 252.613 )
+team = 0
+
+[node name="JumpingJeffrey" parent="." instance=ExtResource( 10 )]
+position = Vector2( 611.978, 679.992 )
