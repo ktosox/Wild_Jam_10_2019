@@ -23,7 +23,7 @@ func update_direction(newDirection):
 func fire_beam():
 	var bullet = bullet_beam_scene.instance()
 	bullet.global_position = $outlet.global_position
-	bullet.rotation = rotation + ((randf()-0.5)/25.0)
+	bullet.rotation = rotation + ((randf()-0.5)*0.04)
 	bullet.setTeam(GM.teamPlayer)
 	get_parent().get_parent().add_child(bullet)
 	$Blast.pitch_scale = 1.2 + randf()*0.16

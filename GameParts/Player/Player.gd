@@ -5,7 +5,7 @@ var bullet_wave_scene = load("res://GameParts/Player/Bullet_Wave.tscn")
 
 var HP = 3
 var speed = 60
-var friction = 0.74
+var friction = 0.79
 var maxSpeed = 42
 var direction = Vector2()
 var canMove = true

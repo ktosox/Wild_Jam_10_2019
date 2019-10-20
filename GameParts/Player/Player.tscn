@@ -4,7 +4,7 @@
 [ext_resource path="res://GameParts/Camera_Operator/CameraOperator.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Resources/character2.png" type="Texture" id=3]
 [ext_resource path="res://GameParts/Player/Head.gd" type="Script" id=4]
-[ext_resource path="res://Resources/Particles/Pixel_Particle_2.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Particles/effect16.png" type="Texture" id=5]
 [ext_resource path="res://Resources/Particles/Pixel_Particle_5.png" type="Texture" id=6]
 [ext_resource path="res://Resources/Audio/HomeBrew/ouch.wav" type="AudioStream" id=7]
 [ext_resource path="res://Resources/Particles/effect_un_light_2.png" type="Texture" id=8]
@@ -168,26 +168,23 @@ modulate = Color( 1, 1, 1, 0 )
 script = ExtResource( 4 )
 
 [node name="Pixel_Particle_4" type="Sprite" parent="Head"]
-position = Vector2( 0, -59.1662 )
-rotation = -0.785398
+position = Vector2( 0, -39.448 )
 texture = ExtResource( 5 )
 
 [node name="outlet" type="Position2D" parent="Head"]
-position = Vector2( 0, -65.6774 )
+position = Vector2( 0, -39.5396 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Head/outlet"]
-position = Vector2( 0, 6 )
+position = Vector2( 0, -0.00506592 )
 rotation = -1.5708
-amount = 6
-lifetime = 0.24
-local_coords = false
+amount = 3
 texture = ExtResource( 6 )
-spread = 25.0
+spread = 0.7
 gravity = Vector2( 0, 0 )
-initial_velocity = 100.0
-linear_accel = 80.0
+initial_velocity = 120.0
 linear_accel_random = 1.0
 radial_accel = 50.0
+damping = 100.0
 
 [node name="Blast" type="AudioStreamPlayer2D" parent="Head"]
 stream = ExtResource( 7 )
