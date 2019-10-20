@@ -6,9 +6,11 @@ func _on_Button_return_pressed():
 
 
 func _on_Button_moar_pressed():
-	print("MOAR MOAR MOARMOAR MOAR MOAR MOAR")
+	get_tree().paused=false
+	GM.switchLevel(0)
+
 
 
 func _on_Button_exit_pressed():
 	get_tree().paused = false
-	GM.changeToMainMenu()
+	GM.end_program()

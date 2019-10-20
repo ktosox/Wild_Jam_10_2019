@@ -23,6 +23,7 @@ config/icon="res://icon.png"
 
 GM="*res://GameManager.gd"
 SM="*res://ShaderManager.tscn"
+MM="*res://MusicManager.tscn"
 
 [display]
 
@@ -92,5 +93,5 @@ player_skill1={
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
-environment/default_clear_color=Color( 0.184314, 0.184314, 0.184314, 1 )
+environment/default_clear_color=Color( 0.105882, 0.105882, 0.14902, 1 )
 environment/default_environment="res://default_env.tres"

@@ -8,15 +8,17 @@ var currentCamera
 #fadeIn(time)
 #colorSplash(time, color)
 
+
+
 var currentPlayer
 
-var teamPlayer = randi()%2
+var teamPlayer = 3
 
-var currentLevel = 1
+var currentLevel = 0
 
-const color1 = Color(0.21,0.7,0.33)
+const color0 = Color(0.21,0.7,0.33)
 
-const color0 = Color(0.5,0.25,0.44)
+const color1 = Color(0.5,0.25,0.44)
 
 #------------------------------------------------
 
@@ -24,7 +26,7 @@ const color0 = Color(0.5,0.25,0.44)
 
 var introPath = "res://Key_Scenes/Intro/Intro.tscn"
 
-var creditsPath = "res://Key_Scenes/Credits/Credits.tscn"
+var creditsPath = "res://Levels/Credits/Credits.tscn"
 
 var mainMenuPath = "res://Key_Scenes/MainMenu/MainMenu.tscn"
 
@@ -32,7 +34,7 @@ var gamePath = "res://Key_Scenes/Game/Game.tscn"
 
 var pauseMenuScene = load("res://GameParts/PauseMenu/PauseMenu.tscn")
 
-var gameOverMenuScene = load("res://Key_Scenes/GameOverMenu/GameOverMenu.tscn")
+var gameOverMenuScene = load("res://GameParts/GameOverMenu/GameOverMenu.tscn")
 
 #------------------------------------------------
 
@@ -66,21 +68,33 @@ func lose_game():
 
 
 
-func win_game(caller):
+func win_game():
 	currentLevel+=1
-	changeToGame()
-	caller.free()
+	resetLevel()
 	#ends current level and ptogresses player to next level
 	#called by Game scene upon player reaching objective
 	
 
-func switchLevel():
-	currentLevel += 1
+func switchLevel(level):
+	currentLevel = level
 	resetLevel()
 
 # this requires an overhaul, I guess
 func resetLevel():
-	pass
+	match (currentLevel):
+		0:
+			teamPlayer = 3
+			get_tree().change_scene("res://Levels/Introduction/Introduction.tscn")
+		1:
+			get_tree().change_scene("res://Levels/Spawn/Spawn.tscn")
+		2:
+			get_tree().change_scene("res://Levels/Cheese/Cheese.tscn")
+		3:
+			changeToCredits()
+		4:
+			pass
+		5:
+			changeToCredits()
 
 # dont forget to change this to return menu on html realease
 func end_program():

@@ -8,9 +8,12 @@ radius = 3.0
 height = 15.0
 
 [node name="Bullet_Beam" type="RigidBody2D"]
+modulate = Color( 1, 1, 0.8, 1 )
 collision_layer = 0
 collision_mask = 84
 gravity_scale = 0.0
+contacts_reported = 1
+contact_monitor = true
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -24,4 +27,5 @@ texture = ExtResource( 2 )
 [node name="TimerLifeTime" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+[connection signal="body_entered" from="." to="." method="_on_Bullet_Beam_body_entered"]
 [connection signal="timeout" from="TimerLifeTime" to="." method="_on_TimerLifeTime_timeout"]

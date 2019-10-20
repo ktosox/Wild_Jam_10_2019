@@ -1,8 +1,8 @@
 extends Node2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
+var bullet_beam_scene = load("res://GameParts/Player/Bullet_Beam.tscn")
+
 var turnSpeed = 0.09
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,6 +20,16 @@ func update_direction(newDirection):
 	else:
 		rotate(-turnSpeed*rot2vec.distance_to(newDirection))
 
+func fire_beam():
+	var bullet = bullet_beam_scene.instance()
+	bullet.global_position = $outlet.global_position
+	bullet.rotation = rotation + ((randf()-0.5)/25.0)
+	bullet.setTeam(GM.teamPlayer)
+	get_parent().get_parent().add_child(bullet)
+	$Blast.pitch_scale = 1.2 + randf()*0.16
+	$Blast.play()
+	$outlet/CPUParticles2D.emitting = false
+	$outlet/CPUParticles2D.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

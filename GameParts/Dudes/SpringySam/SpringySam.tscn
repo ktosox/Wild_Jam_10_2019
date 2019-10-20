@@ -1,13 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://GameParts/Dudes/SpringySam/SpringySam.gd" type="Script" id=1]
 [ext_resource path="res://GameParts/BubbleText/BubbleTextGenerator.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GameParts/Dudes/Shadow.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Resources/snek.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Audio/GDC2018/Breaths,Male,Exhale,Ghost,Evil,Hostile,Snarl,1.wav" type="AudioStream" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 10.5895
-height = 40.1197
+height = 25.7216
 
 [sub_resource type="Animation" id=2]
 resource_name = "animate"
@@ -42,14 +43,11 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.4, 0.9 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "move"
-}, {
-"args": [  ],
-"method": "stop"
 } ]
 }
 
@@ -72,10 +70,41 @@ tracks/0/keys = {
 } ]
 }
 
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 34.4287
+height = 1.30477
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 460.0
+
+[sub_resource type="Animation" id=6]
+resource_name = "attack1"
+length = 1.3
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "fire_bullet"
+}, {
+"args": [  ],
+"method": "fire_bullet"
+}, {
+"args": [  ],
+"method": "fire_bullet"
+} ]
+}
+
 [node name="SpringySam" type="RigidBody2D"]
 collision_layer = 0
 collision_mask = 86
-mass = 60.0
+mass = 20.0
 gravity_scale = 0.0
 script = ExtResource( 1 )
 
@@ -93,12 +122,41 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="TimerBored" type="Timer" parent="."]
-wait_time = 6.0
+wait_time = 3.0
 
 [node name="Jump" type="AnimationPlayer" parent="."]
 anims/animate = SubResource( 2 )
 
 [node name="Sleep" type="AnimationPlayer" parent="."]
-autoplay = "anim"
 anims/anim = SubResource( 3 )
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2( 0, 0.894882 )
+rotation = 1.5708
+shape = SubResource( 4 )
+
+[node name="AggroRange" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AggroRange"]
+shape = SubResource( 5 )
+
+[node name="outlet" type="Position2D" parent="."]
+position = Vector2( 15.3521, -22.5947 )
+
+[node name="Attack" type="AnimationPlayer" parent="."]
+anims/attack1 = SubResource( 6 )
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+pitch_scale = 1.4
+attenuation = 0.125
 [connection signal="timeout" from="TimerBored" to="." method="_on_TimerBored_timeout"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_HitBox_body_entered"]
+[connection signal="body_entered" from="AggroRange" to="." method="_on_AggroRange_body_entered"]
+[connection signal="finished" from="Death" to="." method="_on_Death_finished"]

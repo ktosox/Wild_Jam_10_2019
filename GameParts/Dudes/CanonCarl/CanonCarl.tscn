@@ -2,7 +2,7 @@
 
 [ext_resource path="res://GameParts/Dudes/CanonCarl/CanonCarl.gd" type="Script" id=1]
 [ext_resource path="res://GameParts/Dudes/Shadow.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Resources/banner_1.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Particles/effect4.png" type="Texture" id=3]
 [ext_resource path="res://Resources/canon4.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -15,7 +15,7 @@ radius = 61.9997
 resource_name = "AttackFire"
 length = 0.7
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "aim"
 length = 0.3
 tracks/0/type = "value"
@@ -31,7 +31,7 @@ tracks/0/keys = {
 "values": [ -15.0, 5.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "idle"
 length = 3.0
 loop = true
@@ -48,7 +48,7 @@ tracks/0/keys = {
 "values": [ 0.0, 50.0, 0.0, -50.0, 0.0 ]
 }
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=6]
 radius = 207.41
 
 [node name="CanonCarl" type="RigidBody2D"]
@@ -94,8 +94,8 @@ position = Vector2( -0.794434, -80.6345 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Canon/Animation_Node"]
 autoplay = "idle"
-anims/aim = SubResource( 5 )
-anims/idle = SubResource( 6 )
+anims/aim = SubResource( 4 )
+anims/idle = SubResource( 5 )
 
 [node name="DetectionRange" type="Area2D" parent="."]
 collision_layer = 0
@@ -103,5 +103,5 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange"]
 visible = false
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 [connection signal="body_entered" from="DetectionRange" to="." method="_on_DetectionRange_body_entered"]

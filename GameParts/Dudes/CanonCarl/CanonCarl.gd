@@ -29,10 +29,10 @@ func setTeam(newTeam):
 	team = newTeam
 	if (team == 1):
 		set_collision_layer_bit(2, true)
-		$Shadow.modulate = Color(0.2,0.7,0.33)
+
 	else:
 		set_collision_layer_bit(4, true)
-		$Shadow.modulate = Color(0.5,0.25,0.44)
+
 
 
 func _on_DetectionRange_body_entered(body):

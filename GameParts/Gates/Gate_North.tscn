@@ -1,53 +1,64 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://GameParts/Gates/Gate_North.gd" type="Script" id=1]
-[ext_resource path="res://Resources/GATE.png" type="Texture" id=2]
+[ext_resource path="res://GameParts/BubbleText/BubbleTextGenerator.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GameParts/Gates/gates_frame.png" type="Texture" id=3]
+[ext_resource path="res://GameParts/Gates/gates_door.png" type="Texture" id=4]
 
-[sub_resource type="CapsuleShape2D" id=3]
-radius = 12.0
-height = 30.0
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 20.073, 40 )
-
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 19.4421
+height = 142.502
 
 [sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 80.4262, 66.8875 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 20, 70 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 20, 70 )
 
 [node name="Gate_North" type="Node2D"]
 script = ExtResource( 1 )
 
+[node name="BubbleTextGenerator" parent="." instance=ExtResource( 2 )]
+z_index = 2
+
 [node name="Closed" type="StaticBody2D" parent="."]
-position = Vector2( 0, -3.96114 )
+position = Vector2( 0, 79.3788 )
+collision_layer = 64
+collision_mask = 62
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Closed"]
+position = Vector2( 0, 3.59341 )
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="ExitPoint" type="Area2D" parent="."]
-position = Vector2( 0, -18.3513 )
+position = Vector2( 0, 68.9008 )
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitPoint"]
 position = Vector2( 0, 8.30179 )
-shape = SubResource( 4 )
-
-[node name="Door" type="Sprite" parent="."]
-
-[node name="FrameEdge" type="StaticBody2D" parent="."]
-position = Vector2( 0, -3.763 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FrameEdge"]
-position = Vector2( -30, 0 )
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="FrameEdge"]
-position = Vector2( 30, 0 )
 shape = SubResource( 2 )
 
-[node name="Frame" type="Sprite" parent="."]
-position = Vector2( 0, -49.733 )
-scale = Vector2( 0.4, 0.5 )
-texture = ExtResource( 2 )
+[node name="FrameEdge" type="StaticBody2D" parent="."]
+position = Vector2( 0, 25.8087 )
+collision_layer = 64
+collision_mask = 62
 
-[node name="Back" type="Sprite" parent="Frame"]
-show_behind_parent = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrameEdge"]
+position = Vector2( -100, 0 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="FrameEdge"]
+position = Vector2( 100, 0 )
+shape = SubResource( 4 )
+
+[node name="Frame" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="Door" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+[connection signal="body_entered" from="ExitPoint" to="." method="_on_ExitPoint_body_entered"]

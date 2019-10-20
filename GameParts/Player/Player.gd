@@ -1,31 +1,51 @@
 extends KinematicBody2D
 
-var bullet_beam_scene = load("res://GameParts/Player/Bullet_Beam.tscn")
+
 var bullet_wave_scene = load("res://GameParts/Player/Bullet_Wave.tscn")
 
+var HP = 3
 var speed = 60
 var friction = 0.74
 var maxSpeed = 42
 var direction = Vector2()
 var canMove = true
+var canFire = true
 
 var invunrability = false
-
+var bullet_ready = true
 var skill_1_ready = true #dodge / roll on CD
 var skill_flash_ready = true #slash on CD
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GM.currentPlayer = self
 	GM.currentCamera = $CameraOperator
+	updateTeam()
 	pass # Replace with function body.
 
+
+func updateTeam():
+	if(GM.teamPlayer == 0):
+		$Head.modulate = GM.color0
+		$HitBox.set_collision_mask_bit(2,true)
+		$HitBox.set_collision_mask_bit(3,true)
+	if(GM.teamPlayer == 1):
+		$Head.modulate = GM.color1
+		$HitBox.set_collision_mask_bit(4,true)
+		$HitBox.set_collision_mask_bit(5,true)
+		
 func _input(event):
 	if(event.is_action_pressed("ui_cancel")):
 		GM.pause_game()
 	if(event.is_action_pressed("player_attack")):
-		fire_beam()
+		if(bullet_ready and canFire):
+			bullet_ready = false
+			$TimerAttack.start()
+			$Head.fire_beam()
 	if(event.is_action_pressed("player_flash")):
 		if(skill_flash_ready):
+			skill_flash_ready = false
+			$TimerFlash.start()
 			skill_flash()
 	if(event.is_action_pressed("player_skill1")):
 		if(skill_1_ready):
@@ -64,21 +84,16 @@ func _physics_process(delta):
 				if(newDirection.x != 0):
 					$effect4.region_rect.position.x = 64
 				if(newDirection.x ==1):
-					$effect4.scale.x = 1.5
+					$effect4.scale.x = 1.0
 				if(newDirection.x == -1):
-					$effect4.scale.x = -1.5
+					$effect4.scale.x = -1.0
 				direction += newDirection 
 		direction *= friction
 		direction.x = clamp(direction.x,-maxSpeed,maxSpeed)
 		direction.y = clamp(direction.y,-maxSpeed,maxSpeed)
 		move_and_slide(direction * speed)
 
-func fire_beam():
-	var bullet = bullet_beam_scene.instance()
-	bullet.global_position = global_position
-	bullet.rotation = $Head.rotation
-	get_parent().add_child(bullet)
-	pass
+
 
 func invunrableStart():
 	invunrability = true
@@ -99,25 +114,53 @@ func skill_dodge():
 func skill_flash():
 	print("flash")
 	$CameraOperator.colorSplash(1.2)
+	$Flash.play()
 	$Flash1/Animate.play("Flash")
 	$Flash2/Animate.play("Flash")
 	pass
 
 func damange():
-	print("ouch")
+	HP-=1
+	if(HP<1):
+		GM.lose_game()
+	print("oof")
+	invunrableStart()
 	$DamangeAnimator.play("blink")
 	pass
 
 func _on_HitBox_body_entered(body):
-	if(body.get_collision_layer_bit(3) or body.get_collision_layer_bit(5)):
+	if((body.get_collision_layer_bit(3) and GM.teamPlayer == 0) or (body.get_collision_layer_bit(5) and GM.teamPlayer == 1)):
 		#this is a bullet
 		if(!invunrability):
 			damange()
 			body.pop()
-	if(body.get_collision_layer_bit(2) or body.get_collision_layer_bit(4)):
+	if((body.get_collision_layer_bit(2) and GM.teamPlayer == 0 ) or (body.get_collision_layer_bit(4) and GM.teamPlayer == 1)):
 		#this is a dude
 		if(!invunrability):
 			damange()
 
 
+func enter_gate():
+	invunrableStart()
+	canMove = false
+	$ExitLevel.play("anim")
+	$CameraOperator.fadeOut(2.0)
+	pass
 
+func end_level():
+	GM.win_game()
+
+func _on_TimerAttack_timeout():
+	bullet_ready = true
+	$Head/outlet/CPUParticles2D.visible = true
+	$Head/outlet/CPUParticles2D.emitting = true
+	if(Input.is_action_pressed("player_attack")):
+		$Head.fire_beam()
+		bullet_ready = false
+		$TimerAttack.start()
+	pass # Replace with function body.
+
+
+func _on_TimerFlash_timeout():
+	skill_flash_ready = true
+	pass # Replace with function body.

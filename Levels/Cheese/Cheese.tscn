@@ -1,0 +1,199 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Levels/Cheese/Cheese.gd" type="Script" id=1]
+[ext_resource path="res://Levels/Room_statics.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/room_rect_wide.png" type="Texture" id=3]
+[ext_resource path="res://GameParts/Environment/Big_Hole.tscn" type="PackedScene" id=4]
+[ext_resource path="res://GameParts/Environment/Small_Hole.tscn" type="PackedScene" id=5]
+[ext_resource path="res://GameParts/Gates/Gate_North.tscn" type="PackedScene" id=6]
+[ext_resource path="res://GameParts/Dudes/SpringySam/SpringySam.tscn" type="PackedScene" id=7]
+[ext_resource path="res://GameParts/Player/Player.tscn" type="PackedScene" id=8]
+
+[node name="Cheese" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="StaticBody2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 757.267, 279.973 )
+scale = Vector2( 2.82, 2.71 )
+
+[node name="room_rect_wide" type="Sprite" parent="."]
+position = Vector2( 769.914, 323.468 )
+texture = ExtResource( 3 )
+
+[node name="Holes" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="Big_Hole" parent="Holes" instance=ExtResource( 4 )]
+position = Vector2( 457.101, -75.4187 )
+
+[node name="Big_Hole2" parent="Holes" instance=ExtResource( 4 )]
+position = Vector2( -141.966, -81.839 )
+
+[node name="Big_Hole3" parent="Holes" instance=ExtResource( 4 )]
+position = Vector2( 55.0668, -27.595 )
+scale = Vector2( 2, 2 )
+
+[node name="Big_Hole4" parent="Holes" instance=ExtResource( 4 )]
+position = Vector2( 659.642, 246.965 )
+
+[node name="Big_Hole5" parent="Holes" instance=ExtResource( 4 )]
+position = Vector2( 380.918, -3.68106 )
+
+[node name="Big_Hole10" parent="Holes" instance=ExtResource( 4 )]
+position = Vector2( 348.313, 137.437 )
+
+[node name="Small_Hole" parent="Holes" instance=ExtResource( 5 )]
+position = Vector2( 213.199, 161.832 )
+scale = Vector2( 2, 2 )
+
+[node name="Small_Hole2" parent="Holes" instance=ExtResource( 5 )]
+position = Vector2( 458.826, 111.391 )
+
+[node name="Small_Hole3" parent="Holes" instance=ExtResource( 5 )]
+position = Vector2( 481.249, -215.163 )
+scale = Vector2( 3, 3 )
+
+[node name="Small_Hole4" parent="Holes" instance=ExtResource( 5 )]
+position = Vector2( 392.391, 71.4406 )
+
+[node name="Small_Hole5" parent="Holes" instance=ExtResource( 5 )]
+position = Vector2( 545.587, 179.322 )
+scale = Vector2( 2, 2 )
+
+[node name="Small_Hole6" parent="Holes" instance=ExtResource( 5 )]
+position = Vector2( 112.236, 134.24 )
+
+[node name="Holes2" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( 660.892, -140.629 )
+
+[node name="Big_Hole" parent="Holes2" instance=ExtResource( 4 )]
+position = Vector2( 744.902, 195.411 )
+
+[node name="Big_Hole2" parent="Holes2" instance=ExtResource( 4 )]
+position = Vector2( -106.892, 576.213 )
+
+[node name="Big_Hole3" parent="Holes2" instance=ExtResource( 4 )]
+position = Vector2( 407.269, 69.7378 )
+
+[node name="Big_Hole4" parent="Holes2" instance=ExtResource( 4 )]
+position = Vector2( 592.078, 705.271 )
+
+[node name="Big_Hole5" parent="Holes2" instance=ExtResource( 4 )]
+position = Vector2( -551.918, 908.344 )
+scale = Vector2( 2, 2 )
+
+[node name="Big_Hole6" parent="Holes2" instance=ExtResource( 4 )]
+position = Vector2( -564.333, 705.157 )
+scale = Vector2( 4, 4 )
+
+[node name="Big_Hole7" parent="Holes2" instance=ExtResource( 4 )]
+position = Vector2( 1000.29, 816.448 )
+
+[node name="Big_Hole8" parent="Holes2" instance=ExtResource( 4 )]
+position = Vector2( 80.8254, 731.302 )
+
+[node name="Big_Hole9" parent="Holes2" instance=ExtResource( 4 )]
+position = Vector2( 758.999, 501.227 )
+
+[node name="Big_Hole10" parent="Holes2" instance=ExtResource( 4 )]
+position = Vector2( 359.301, 391.832 )
+scale = Vector2( 4, 4 )
+
+[node name="Small_Hole" parent="Holes2" instance=ExtResource( 5 )]
+position = Vector2( 807.489, 349.425 )
+
+[node name="Small_Hole2" parent="Holes2" instance=ExtResource( 5 )]
+position = Vector2( 344.952, 566.888 )
+
+[node name="Small_Hole3" parent="Holes2" instance=ExtResource( 5 )]
+position = Vector2( 497.353, 223.439 )
+
+[node name="Small_Hole4" parent="Holes2" instance=ExtResource( 5 )]
+position = Vector2( 354.044, 917.979 )
+scale = Vector2( 4, 4 )
+
+[node name="Small_Hole5" parent="Holes2" instance=ExtResource( 5 )]
+position = Vector2( -138.699, 961.505 )
+scale = Vector2( 2, 2 )
+
+[node name="Small_Hole6" parent="Holes2" instance=ExtResource( 5 )]
+position = Vector2( 424.132, 181.642 )
+
+[node name="Small_Hole7" parent="Holes2" instance=ExtResource( 5 )]
+position = Vector2( 199.756, 567.264 )
+
+[node name="Gate_North" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1146.82, -344.237 )
+
+[node name="SpringySam2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 652.085, -111.639 )
+team = 1
+
+[node name="SpringySam4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1588.86, 525.11 )
+team = 0
+
+[node name="SpringySam7" parent="." instance=ExtResource( 7 )]
+position = Vector2( 734.107, 749.591 )
+team = 1
+
+[node name="SpringySam10" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1281.8, 866.782 )
+team = 0
+
+[node name="SpringySam11" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1100.03, 436.284 )
+team = 1
+
+[node name="SpringySam12" parent="." instance=ExtResource( 7 )]
+position = Vector2( -81.4486, 869.174 )
+team = 0
+
+[node name="SpringySam13" parent="." instance=ExtResource( 7 )]
+position = Vector2( 356.225, 881.132 )
+team = 1
+
+[node name="SpringySam6" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1364.38, -107.322 )
+team = 0
+
+[node name="SpringySam3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 540.158, 69.2665 )
+team = 1
+
+[node name="SpringySam5" parent="." instance=ExtResource( 7 )]
+position = Vector2( 5.23657, 391.04 )
+team = 0
+
+[node name="SpringySam8" parent="." instance=ExtResource( 7 )]
+position = Vector2( 327.938, -125.559 )
+team = 0
+
+[node name="SpringySam9" parent="." instance=ExtResource( 7 )]
+position = Vector2( -27.7063, -125.374 )
+team = 1
+
+[node name="Player" parent="." instance=ExtResource( 8 )]
+position = Vector2( -102.196, -190.491 )
+
+[node name="notes" type="Node2D" parent="."]
+modulate = Color( 1, 1, 0.8, 1 )
+scale = Vector2( 2, 2 )
+
+[node name="Label" type="Label" parent="notes"]
+margin_left = -84.8099
+margin_top = -146.583
+margin_right = 94.1901
+margin_bottom = -132.583
+text = "not everyone is your enemy"
+
+[node name="Label2" type="Label" parent="notes"]
+margin_left = -13.6038
+margin_top = 125.155
+margin_right = 167.396
+margin_bottom = 173.155
+text = "press E to reveal who is who
+
+and to start the level
+(6s cooldown)"

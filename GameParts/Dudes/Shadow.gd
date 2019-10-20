@@ -15,6 +15,6 @@ func _ready():
 func setTeam(NewTeam):
 	team = NewTeam
 	if(team == 1):
-		$LightOccluder2D.light_mask = 4
-	else:
 		$LightOccluder2D.light_mask = 2
+	else:
+		$LightOccluder2D.light_mask = 4

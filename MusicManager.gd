@@ -8,13 +8,16 @@ var musicList = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if(AudioServer.is_bus_mute(AudioServer.get_bus_index("Music"))):
-		$MusicPlayer.free()
-	else:
-		_on_MusicPlayer_finished()
+	_on_MusicPlayer_finished()
+#	if(AudioServer.is_bus_mute(AudioServer.get_bus_index("Music"))):
+#		$MusicPlayer.free()
+#	else:
+#		_on_MusicPlayer_finished()
 	pass # Replace with function body.
 
-
+func play_defeat():
+	$MusicPlayer.stop()
+	$Defeat.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -24,3 +27,8 @@ func _ready():
 func _on_MusicPlayer_finished():
 	$MusicPlayer.stream = load(musicList[randi()%musicList.size()])
 	$MusicPlayer.play(0.0)
+
+
+func _on_Defeat_finished():
+	_on_MusicPlayer_finished()
+	pass # Replace with function body.
