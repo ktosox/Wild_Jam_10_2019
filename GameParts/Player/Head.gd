@@ -3,7 +3,7 @@ extends Node2D
 
 var bullet_beam_scene = load("res://GameParts/Player/Bullet_Beam.tscn")
 
-var turnSpeed = 0.09
+var turnSpeed = 0.1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -12,13 +12,16 @@ func update_direction(newDirection):
 	var rot2vec = Vector2()
 	rot2vec.x = sin(deg2rad(global_rotation_degrees))
 	rot2vec.y = cos(deg2rad(global_rotation_degrees+180))
-	var target = fmod(atan2(newDirection.x, - newDirection.y) - rotation + 2*PI,2*PI)
-	if (target<0):
-		target+= 2*PI
-	if(abs(target)<PI):
-		rotate(turnSpeed*rot2vec.distance_to(newDirection))
+	if(rot2vec.distance_to(newDirection*(newDirection.length()/(abs(newDirection.x)+abs(newDirection.y))))<0.12):
+		rotation = atan2(newDirection.x,-newDirection.y)
 	else:
-		rotate(-turnSpeed*rot2vec.distance_to(newDirection))
+		var target = fmod(atan2(newDirection.x, - newDirection.y) - rotation + 2*PI,2*PI)
+		if (target<0):
+			target+= 2*PI
+		if(abs(target)<PI):
+			rotate(turnSpeed*rot2vec.distance_to(newDirection))
+		else:
+			rotate(-turnSpeed*rot2vec.distance_to(newDirection))
 
 func fire_beam():
 	var bullet = bullet_beam_scene.instance()

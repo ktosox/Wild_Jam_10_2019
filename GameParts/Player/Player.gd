@@ -75,7 +75,7 @@ func _physics_process(delta):
 		var newDirection = getInput()
 		if(newDirection != Vector2(0,0)):
 			$Head.update_direction(newDirection)
-			if(newDirection.distance_to(get_head_vector().round())<0.3):
+			if(newDirection.distance_to(get_head_vector().round())<0.24):
 				#print(get_head_vector().ceil()," : ",newDirection)
 				if(newDirection.y == -1):
 					$effect4.region_rect.position.x = 128
