@@ -83,7 +83,7 @@ margin_left = 75.0
 margin_top = 0.0
 margin_right = 245.0
 margin_bottom = 104.0
-text = "Try again"
+text = "Reset Level"
 
 [node name="MarginContainer5" type="MarginContainer" parent="Panel/VBoxContainer/HBoxContainer"]
 margin_left = 249.0
@@ -98,7 +98,7 @@ margin_left = 265.0
 margin_top = 0.0
 margin_right = 435.0
 margin_bottom = 104.0
-text = "restart"
+text = "reset game"
 
 [node name="MarginContainer6" type="MarginContainer" parent="Panel/VBoxContainer/HBoxContainer"]
 margin_left = 439.0
@@ -114,7 +114,7 @@ margin_top = 0.0
 margin_right = 625.0
 margin_bottom = 104.0
 action_mode = 0
-text = "QUIT"
+text = "exit game"
 
 [node name="MarginContainer4" type="MarginContainer" parent="Panel/VBoxContainer/HBoxContainer"]
 margin_left = 629.0
