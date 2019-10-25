@@ -5,8 +5,8 @@
 [node name="DialogBox" type="VBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = -520.0
-rect_min_size = Vector2( 0, 200 )
+margin_bottom = -560.0
+rect_min_size = Vector2( 0, 160 )
 script = ExtResource( 1 )
 
 [node name="TopBar" type="ReferenceRect" parent="."]
@@ -18,5 +18,41 @@ border_color = Color( 0.964706, 0.835294, 0, 1 )
 [node name="DialogSpace" type="ReferenceRect" parent="."]
 margin_top = 64.0
 margin_right = 1280.0
-margin_bottom = 200.0
+margin_bottom = 160.0
 size_flags_vertical = 3
+
+[node name="Single" type="HBoxContainer" parent="DialogSpace"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="DialogSpace/Single"]
+margin_right = 386.0
+margin_bottom = 96.0
+size_flags_horizontal = 3
+
+[node name="Avatar" type="ColorRect" parent="DialogSpace/Single"]
+margin_left = 390.0
+margin_right = 486.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 96, 0 )
+color = Color( 0.717647, 0.0509804, 0.0509804, 1 )
+
+[node name="TextBox" type="ColorRect" parent="DialogSpace/Single"]
+margin_left = 490.0
+margin_right = 890.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 400, 0 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogSpace/Single/TextBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "jhgkgkjgkjgkjhgkjghk
+ijlkhlkjhlkjhlkjhlh
+gjhgjkhgkhjgkhjgkkj"
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogSpace/Single"]
+margin_left = 894.0
+margin_right = 1280.0
+margin_bottom = 96.0
+size_flags_horizontal = 3
