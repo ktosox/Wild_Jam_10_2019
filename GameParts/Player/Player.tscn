@@ -96,22 +96,22 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Curve" id=7]
+[sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 0.7398 ), 0.0, 0.0, 0, 0, Vector2( 0.853506, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=8]
+[sub_resource type="Gradient" id=4]
 offsets = PoolRealArray( 0, 0.397436 )
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1 )
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=5]
 radius = 11.9408
 height = 11.149
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=6]
 radius = 22.5853
 height = 13.6959
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:shadow_gradient_length")
 tracks/0/interp = 1
@@ -137,7 +137,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:shadow_gradient_length")
 tracks/0/interp = 1
@@ -213,8 +213,8 @@ tangential_accel = 1.0
 tangential_accel_random = 0.5
 angle = -720.0
 angle_random = 1.0
-scale_amount_curve = SubResource( 7 )
-color_ramp = SubResource( 8 )
+scale_amount_curve = SubResource( 3 )
+color_ramp = SubResource( 4 )
 
 [node name="outlet" type="Position2D" parent="Head"]
 position = Vector2( 0, -39.5396 )
@@ -238,7 +238,7 @@ bus = "Effects"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 19.0559 )
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 0
@@ -246,7 +246,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2( 0, 8.11817 )
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="Flash1" type="Light2D" parent="."]
 enabled = false
@@ -262,7 +262,7 @@ shadow_filter_smooth = 1.0
 shadow_item_cull_mask = 2
 
 [node name="Animate" type="AnimationPlayer" parent="Flash1"]
-anims/Flash = SubResource( 5 )
+anims/Flash = SubResource( 7 )
 
 [node name="Flash2" type="Light2D" parent="."]
 enabled = false
@@ -278,7 +278,7 @@ shadow_filter_smooth = 1.0
 shadow_item_cull_mask = 4
 
 [node name="Animate" type="AnimationPlayer" parent="Flash2"]
-anims/Flash = SubResource( 6 )
+anims/Flash = SubResource( 8 )
 
 [node name="TimerAttack" type="Timer" parent="."]
 wait_time = 0.3

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://GameParts/Camera_Operator/CameraOperator.gd" type="Script" id=1]
 [ext_resource path="res://GameParts/Interface/Interface.tscn" type="PackedScene" id=2]
@@ -26,12 +26,24 @@ tracks/0/path = NodePath("ColorBox:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.4, 1.5 ),
 "transitions": PoolRealArray( 1, 1, 0.5 ),
 "update": 0,
 "values": [ Color( 0.105882, 0.105882, 0.14902, 1 ), Color( 0.105882, 0.105882, 0.14902, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("OverScreen:material:shader_param/range")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 0.5 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -41,12 +53,24 @@ tracks/0/path = NodePath("ColorBox:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 0.5 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0.105882, 0.105882, 0.14902, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("OverScreen:material:shader_param/range")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, -0.5 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -63,6 +87,21 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 8, 0 ), Vector2( -14, 0 ), Vector2( 12, 0 ), Vector2( -10, 0 ), Vector2( 8, 0 ), Vector2( -6, 0 ), Vector2( 4, 0 ), Vector2( -2, 0 ), Vector2( 1, 0 ), Vector2( 0, 0 ) ]
 }
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;	
+render_mode blend_mix;	
+uniform float range = 0.0;	
+
+void fragment() {	
+
+	vec4 col = texture(SCREEN_TEXTURE, SCREEN_UV);
+	if(distance(UV,vec2(0.5,0.5))>range){COLOR = col;}
+}	"
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
+shader_param/range = 0.0
 
 [node name="CameraOperator" type="Camera2D"]
 anchor_mode = 0
@@ -89,3 +128,12 @@ anims/Color_Flash = SubResource( 1 )
 anims/Fade_from_black = SubResource( 2 )
 anims/Fade_to_black = SubResource( 3 )
 anims/Shake = SubResource( 4 )
+
+[node name="OverScreen" type="ColorRect" parent="."]
+material = SubResource( 6 )
+margin_left = -640.0
+margin_top = -360.0
+margin_right = 640.0
+margin_bottom = 360.0
+rect_min_size = Vector2( 1280, 720 )
+color = Color( 0.105882, 0.105882, 0.14902, 1 )
