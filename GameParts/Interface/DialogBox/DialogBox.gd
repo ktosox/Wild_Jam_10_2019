@@ -10,7 +10,7 @@ var print_text = false
 
 var text_color = Color()
 
-var text_font = "res://GameParts/Interface/font_gorg.tres"
+var text_font = "res://GameParts/Interface/font_narrator.tres"
 
 var text_buffer = ""
 
@@ -22,6 +22,7 @@ var avatar_face
 
 
 func _ready():
+	$Single/TextBox.color = GM.color_back	
 	target_text  = $Single/TextBox/RichTextLabel
 
 	showDialog()
@@ -61,6 +62,7 @@ func hide_all():
 	pass
 
 func update_text():
+
 	target_text.set("custom_fonts/normal_font",load(text_font))
 	target_text.text = text_buffer
 	pass

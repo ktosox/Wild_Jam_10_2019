@@ -16,10 +16,23 @@ var teamPlayer = 3
 
 var currentLevel = 0
 
-const color0 = Color(0.21,0.7,0.33)
+var game_colors :Gradient = load("res://game_pallete.tres")
 
-const color1 = Color(0.5,0.25,0.44)
+export var color0 = Color (0.0,1.0,0.0)
 
+export var color1 = Color (1.0,0.0,1.0)
+
+export var color_back = Color (0.1,0.1,0.12)
+
+export var color_front = Color (1,1,0.8)
+
+func _ready():
+	game_colors = load("res://game_pallete.tres")
+	color0 = game_colors.colors[0]#$Color0.color
+	color1 = game_colors.colors[1]
+	color_front = game_colors.colors[2]
+	color_back = game_colors.colors[3]
+	#print(color0 ," ", color1 ," ", color_back," ", color_front)
 #------------------------------------------------
 
 # Paths to key scenes
