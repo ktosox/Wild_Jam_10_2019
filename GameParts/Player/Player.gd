@@ -4,9 +4,9 @@ extends KinematicBody2D
 var bullet_wave_scene = load("res://GameParts/Player/Bullet_Wave.tscn")
 
 var HP = 4
-var speed = 60
-var friction = 0.79
-var maxSpeed = 42
+var speed = 69 #nice
+var friction = 0.19
+var maxSpeed = 27
 var direction = Vector2()
 var canMove = true
 var canFire = true
@@ -75,7 +75,7 @@ func _physics_process(delta):
 		var newDirection = getInput()
 		if(newDirection != Vector2(0,0)):
 			$Head.update_direction(newDirection)
-			if(newDirection.distance_to(get_head_vector().round())<0.24):
+			if(newDirection.distance_to(get_head_vector().round())<0.79):
 				#print(get_head_vector().ceil()," : ",newDirection)
 				if(newDirection.y == -1):
 					$effect4.region_rect.position.x = 128
@@ -87,12 +87,16 @@ func _physics_process(delta):
 					$effect4.scale.x = 1.0
 				if(newDirection.x == -1):
 					$effect4.scale.x = -1.0
-				direction += newDirection 
-		direction *= friction
-		direction.x = clamp(direction.x,-maxSpeed,maxSpeed)
-		direction.y = clamp(direction.y,-maxSpeed,maxSpeed)
+				direction += Vector2(newDirection.x/newDirection.length(),newDirection.y/newDirection.length())
+			else:
+				direction += (newDirection *0.3)
+		if(direction.length()>maxSpeed):
+			direction -= direction * friction *3
+		else:
+			direction -= direction * friction 
+		#direction.x = clamp(direction.x,-maxSpeed,maxSpeed)
+		#direction.y = clamp(direction.y,-maxSpeed,maxSpeed)
 		move_and_slide(direction * speed)
-
 
 
 

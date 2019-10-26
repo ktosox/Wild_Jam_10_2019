@@ -3,7 +3,7 @@ extends Node2D
 
 var bullet_beam_scene = load("res://GameParts/Player/Bullet_Beam.tscn")
 
-var turnSpeed = 0.1
+var turnSpeed = 0.17
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
