@@ -112,52 +112,52 @@ margin_bottom = 183.0
 size_flags_vertical = 3
 
 [node name="MarginContainer3" type="MarginContainer" parent="Panel/VBoxContainer/HBoxContainer"]
-margin_right = 171.0
+margin_right = 167.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 
 [node name="GameOverButton" parent="Panel/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 175.0
+margin_left = 171.0
 margin_top = 0.0
-margin_right = 345.0
+margin_right = 347.0
 margin_bottom = 60.0
 text = "Reset Level"
 
 [node name="MarginContainer5" type="MarginContainer" parent="Panel/VBoxContainer/HBoxContainer"]
-margin_left = 349.0
-margin_right = 361.0
+margin_left = 351.0
+margin_right = 363.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 12, 0 )
 
 [node name="GameOverButton2" parent="Panel/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 365.0
+margin_left = 367.0
 margin_top = 0.0
-margin_right = 535.0
+margin_right = 539.0
 margin_bottom = 60.0
 text = "reset game"
 
 [node name="MarginContainer6" type="MarginContainer" parent="Panel/VBoxContainer/HBoxContainer"]
-margin_left = 539.0
-margin_right = 551.0
+margin_left = 543.0
+margin_right = 555.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 12, 0 )
 
 [node name="GameOverButton3" parent="Panel/VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 555.0
+margin_left = 559.0
 margin_top = 0.0
-margin_right = 725.0
+margin_right = 729.0
 margin_bottom = 60.0
 action_mode = 0
 text = "exit game"
 
 [node name="MarginContainer4" type="MarginContainer" parent="Panel/VBoxContainer/HBoxContainer"]
-margin_left = 729.0
+margin_left = 733.0
 margin_right = 900.0
 margin_bottom = 60.0
 size_flags_horizontal = 3

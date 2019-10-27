@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [sub_resource type="OpenSimplexNoise" id=1]
 
 [sub_resource type="NoiseTexture" id=2]
+height = 64
 noise = SubResource( 1 )
+
+[sub_resource type="OpenSimplexNoise" id=3]
+
+[sub_resource type="NoiseTexture" id=4]
+height = 64
+noise = SubResource( 3 )
 
 [node name="StatBox" type="HBoxContainer"]
 anchor_right = 1.0
@@ -32,14 +39,27 @@ rect_min_size = Vector2( 128, 0 )
 size_flags_vertical = 3
 color = Color( 0.584314, 0, 0.0705882, 1 )
 
-[node name="progress" type="TextureProgress" parent="."]
-modulate = Color( 0.207843, 0.698039, 0.333333, 1 )
+[node name="ColorRect5" type="ColorRect" parent="."]
 margin_left = 364.0
 margin_right = 980.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
-value = 78.0
-texture_progress = SubResource( 2 )
+
+[node name="progress" type="TextureProgress" parent="ColorRect5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = -2.0
+margin_bottom = -2.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+max_value = 300.0
+value = 195.0
+texture_under = SubResource( 2 )
+texture_progress = SubResource( 4 )
+tint_under = Color( 0.211765, 0.701961, 0.329412, 1 )
+tint_progress = Color( 0.501961, 0.25098, 0.439216, 1 )
 nine_patch_stretch = true
 
 [node name="ColorRect3" type="ColorRect" parent="."]

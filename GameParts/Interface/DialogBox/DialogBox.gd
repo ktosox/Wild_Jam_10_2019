@@ -22,7 +22,7 @@ var avatar_face
 
 
 func _ready():
-	$Single/TextBox.color = GM.color_back	
+	$Single/TextBox.color = GM.color_front	
 	target_text  = $Single/TextBox/RichTextLabel
 
 	showDialog()

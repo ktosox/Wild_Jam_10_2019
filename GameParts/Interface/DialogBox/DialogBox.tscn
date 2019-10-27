@@ -32,14 +32,24 @@ margin_left = 492.0
 margin_right = 912.0
 margin_bottom = 120.0
 rect_min_size = Vector2( 420, 0 )
+color = Color( 1, 1, 0.8, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Single/TextBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = 6.0
+margin_right = -6.0
+margin_bottom = -6.0
+color = Color( 0.105882, 0.105882, 0.14902, 1 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Single/TextBox"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 4.16376
-margin_right = -5.0
-margin_bottom = -5.83624
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
 rect_min_size = Vector2( 60, 60 )
 size_flags_horizontal = 3
 size_flags_vertical = 3

@@ -43,7 +43,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 1.5 ),
 "transitions": PoolRealArray( 1, 0.5 ),
 "update": 0,
-"values": [ 2.0, 0.0 ]
+"values": [ 0.0, 1.0 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -70,7 +70,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, -0.5 ),
 "update": 0,
-"values": [ 0.0, 2.0 ]
+"values": [ 1.0, 0.0 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -106,8 +106,8 @@ uniform float range = 0.0;
 
 void fragment() {	
 
-	vec4 col = texture(SCREEN_TEXTURE, SCREEN_UV);
-	if(distance(UV,vec2(0.5,0.5))>range){COLOR = col;}
+	COLOR = texture(TEXTURE, UV);
+	if(distance(UV,vec2(0.5,0.5))<range){COLOR.a = 0.0;}
 }	"
 
 [sub_resource type="ShaderMaterial" id=6]
@@ -144,6 +144,7 @@ anims/Fade_to_black = SubResource( 3 )
 anims/Shake = SubResource( 4 )
 
 [node name="OverScreen" type="ColorRect" parent="."]
+modulate = Color( 0.105882, 0.105882, 0.14902, 1 )
 material = SubResource( 6 )
 margin_left = -640.0
 margin_top = -360.0

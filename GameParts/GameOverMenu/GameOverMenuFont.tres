@@ -3,8 +3,8 @@
 [ext_resource path="res://Resources/Fonts/Monument/Monument.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 20
-outline_size = 1
+size = 22
+outline_size = 2
 outline_color = Color( 0.207843, 0.698039, 0.333333, 1 )
 use_filter = true
 font_data = ExtResource( 1 )
