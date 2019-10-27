@@ -1,4 +1,6 @@
-[gd_resource type="DynamicFont" format=2]
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Fonts/deutsch_gothic/Deutsch.ttf" type="DynamicFontData" id=1]
 
 [resource]
 size = 27
@@ -6,3 +8,4 @@ outline_color = Color( 1, 1, 0.8, 1 )
 use_filter = true
 extra_spacing_char = 1
 extra_spacing_space = -1
+font_data = ExtResource( 1 )

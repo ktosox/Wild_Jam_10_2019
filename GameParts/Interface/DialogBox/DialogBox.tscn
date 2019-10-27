@@ -32,7 +32,6 @@ margin_left = 492.0
 margin_right = 912.0
 margin_bottom = 120.0
 rect_min_size = Vector2( 420, 0 )
-color = Color( 0.0196078, 0.0196078, 0.219608, 1 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Single/TextBox"]
 anchor_right = 1.0
@@ -45,10 +44,9 @@ rect_min_size = Vector2( 60, 60 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = ExtResource( 2 )
-custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_colors/default_color = Color( 1, 1, 0.8, 1 )
 text = "jhgkgkjgk  gkjhgkjghk
-ijlkhlkjhlkjhlkjhlh
-gjhgjkhgkhjgkhjgkkj"
+ijlkh"
 
 [node name="MarginContainer" type="MarginContainer" parent="Single"]
 margin_left = 916.0

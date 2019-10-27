@@ -1,52 +1,65 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+
+[sub_resource type="NoiseTexture" id=2]
+noise = SubResource( 1 )
 
 [node name="StatBox" type="HBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = -660.0
-rect_min_size = Vector2( 0, 64 )
+margin_bottom = -688.0
+rect_min_size = Vector2( 0, 32 )
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
-margin_right = 333.0
-margin_bottom = 64.0
-size_flags_horizontal = 3
+margin_right = 160.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 160, 0 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 337.0
-margin_right = 401.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
+margin_left = 164.0
+margin_right = 228.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 64, 0 )
+size_flags_vertical = 3
 color = Color( 0.898039, 0.368627, 0.137255, 1 )
 
 [node name="ColorRect2" type="ColorRect" parent="."]
-margin_left = 405.0
-margin_right = 469.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
-color = Color( 0.129412, 0.254902, 0.447059, 1 )
+margin_left = 232.0
+margin_right = 360.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 128, 0 )
+size_flags_vertical = 3
+color = Color( 0.584314, 0, 0.0705882, 1 )
 
 [node name="progress" type="TextureProgress" parent="."]
-margin_left = 473.0
-margin_right = 806.0
-margin_bottom = 64.0
+modulate = Color( 0.207843, 0.698039, 0.333333, 1 )
+margin_left = 364.0
+margin_right = 980.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
+value = 78.0
+texture_progress = SubResource( 2 )
+nine_patch_stretch = true
 
 [node name="ColorRect3" type="ColorRect" parent="."]
-margin_left = 810.0
-margin_right = 874.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
-color = Color( 0.701961, 0.796078, 0.160784, 1 )
+margin_left = 984.0
+margin_right = 1048.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 64, 0 )
+size_flags_vertical = 3
+color = Color( 0.87451, 0.87451, 0.87451, 1 )
 
 [node name="ColorRect4" type="ColorRect" parent="."]
-margin_left = 878.0
-margin_right = 942.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 64, 64 )
-color = Color( 0, 0.658824, 0.643137, 1 )
+margin_left = 1052.0
+margin_right = 1116.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 64, 0 )
+size_flags_vertical = 3
+color = Color( 0.180392, 0.137255, 0.898039, 1 )
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-margin_left = 946.0
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+margin_left = 1120.0
 margin_right = 1280.0
-margin_bottom = 64.0
-size_flags_horizontal = 3
+margin_bottom = 32.0
+rect_min_size = Vector2( 160, 0 )

@@ -112,6 +112,7 @@ radius = 22.5853
 height = 13.6959
 
 [sub_resource type="Animation" id=7]
+length = 1.7
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:shadow_gradient_length")
 tracks/0/interp = 1
@@ -119,7 +120,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7, 1 ),
+"times": PoolRealArray( 0, 1.2, 1.7 ),
 "transitions": PoolRealArray( 1, -2, 2 ),
 "update": 0,
 "values": [ 1.0, 15.0, 1200.0 ]
@@ -131,13 +132,14 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.9 ),
+"times": PoolRealArray( 0, 1.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=8]
+length = 1.7
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:shadow_gradient_length")
 tracks/0/interp = 1
@@ -145,7 +147,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7, 1 ),
+"times": PoolRealArray( 0, 1.2, 1.7 ),
 "transitions": PoolRealArray( 1, -2, 2 ),
 "update": 0,
 "values": [ 1.0, 15.0, 1200.0 ]
@@ -157,7 +159,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.9 ),
+"times": PoolRealArray( 0, 1.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -186,10 +188,6 @@ z_as_relative = false
 anchor_mode = 1
 drag_margin_h_enabled = false
 drag_margin_v_enabled = false
-smoothing_enabled = true
-smoothing_speed = 7.0
-drag_margin_top = 0.3
-drag_margin_bottom = 0.3
 editor_draw_drag_margin = true
 
 [node name="effect4" type="Sprite" parent="."]
@@ -278,7 +276,7 @@ range_item_cull_mask = 2
 shadow_enabled = true
 shadow_color = Color( 0.207843, 0.698039, 0.333333, 1 )
 shadow_buffer_size = 512
-shadow_gradient_length = 1.0
+shadow_gradient_length = 1200.0
 shadow_filter_smooth = 1.0
 shadow_item_cull_mask = 4
 
