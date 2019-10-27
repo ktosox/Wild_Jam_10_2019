@@ -4,9 +4,9 @@ extends KinematicBody2D
 var bullet_wave_scene = load("res://GameParts/Player/Bullet_Wave.tscn")
 
 var HP = 4
-var speed = 69 #nice
+var speed = 63
 var friction = 0.19
-var maxSpeed = 27
+var maxSpeed = 34
 var direction = Vector2()
 var canMove = true
 var canFire = true
@@ -130,6 +130,7 @@ func damange():
 		GM.lose_game()
 	print("oof")
 	invunrableStart()
+	$CameraOperator.screenShake(0.8)
 	$DamangeAnimator.play("blink")
 	pass
 

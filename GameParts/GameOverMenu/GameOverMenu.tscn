@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://GameParts/GameOverMenu/GameOverMenu.gd" type="Script" id=1]
 [ext_resource path="res://GameParts/GameOverMenu/GameOverSignFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://GameParts/GameOverMenu/GameOverButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Resources/Audio/HomeBrew/small_bang.wav" type="AudioStream" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
@@ -30,6 +31,20 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, -2 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.0784314 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../../../Crunch")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
 }
 
 [node name="GameOverMenu" type="ColorRect"]
@@ -153,6 +168,11 @@ margin_right = 900.0
 margin_bottom = 220.0
 rect_min_size = Vector2( 0, 20 )
 size_flags_vertical = 3
+
+[node name="Crunch" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 653.998, 297.428 )
+stream = ExtResource( 4 )
+pitch_scale = 0.7
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/GameOverButton" to="." method="_on_GameOverButton_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/GameOverButton2" to="." method="_on_GameOverButton2_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/GameOverButton3" to="." method="_on_GameOverButton3_pressed"]
