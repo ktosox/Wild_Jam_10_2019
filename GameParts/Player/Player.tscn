@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://GameParts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Audio/GDC2019/swoosh_meta_L_R_006.wav" type="AudioStream" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Resources/Audio/HomeBrew/ouch.wav" type="AudioStream" id=9]
 [ext_resource path="res://Resources/Particles/effect_un_light_2.png" type="Texture" id=10]
 [ext_resource path="res://Resources/Audio/HomeBrew/click_confirmed.wav" type="AudioStream" id=11]
+[ext_resource path="res://GameParts/Interface/Interface.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Animation" id=1]
 resource_name = "anim"
@@ -186,8 +187,6 @@ bus = "Effects"
 z_index = 500
 z_as_relative = false
 anchor_mode = 1
-drag_margin_h_enabled = false
-drag_margin_v_enabled = false
 editor_draw_drag_margin = true
 
 [node name="effect4" type="Sprite" parent="."]
@@ -295,6 +294,11 @@ one_shot = true
 stream = ExtResource( 11 )
 pitch_scale = 0.5
 bus = "Effects"
+
+[node name="GUI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Interface" parent="GUI" instance=ExtResource( 12 )]
 [connection signal="body_entered" from="HitBox" to="." method="_on_HitBox_body_entered"]
 [connection signal="timeout" from="TimerAttack" to="." method="_on_TimerAttack_timeout"]
 [connection signal="timeout" from="TimerFlash" to="." method="_on_TimerFlash_timeout"]
