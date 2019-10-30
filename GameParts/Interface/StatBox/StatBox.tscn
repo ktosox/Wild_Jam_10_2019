@@ -31,13 +31,39 @@ rect_min_size = Vector2( 64, 0 )
 size_flags_vertical = 3
 color = Color( 0.898039, 0.368627, 0.137255, 1 )
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="Health" type="ColorRect" parent="."]
 margin_left = 232.0
 margin_right = 360.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 128, 0 )
 size_flags_vertical = 3
-color = Color( 0.584314, 0, 0.0705882, 1 )
+color = Color( 0.160784, 0.137255, 0.141176, 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Health"]
+modulate = Color( 1, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.0
+margin_top = 3.0
+margin_right = -3.0
+margin_bottom = -3.0
+
+[node name="ColorRect" type="ColorRect" parent="Health/HBoxContainer"]
+margin_right = 38.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+
+[node name="ColorRect2" type="ColorRect" parent="Health/HBoxContainer"]
+margin_left = 42.0
+margin_right = 80.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+
+[node name="ColorRect3" type="ColorRect" parent="Health/HBoxContainer"]
+margin_left = 84.0
+margin_right = 122.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
 
 [node name="ColorRect5" type="ColorRect" parent="."]
 margin_left = 364.0

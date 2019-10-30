@@ -128,7 +128,7 @@ func damange():
 	HP-=1
 	if(HP<1):
 		GM.lose_game()
-	print("oof")
+	$GUI/Interface.lose_health()
 	invunrableStart()
 	$CameraOperator.screenShake(0.8)
 	$DamangeAnimator.play("blink")
