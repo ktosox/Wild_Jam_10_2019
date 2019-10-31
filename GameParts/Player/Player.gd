@@ -4,12 +4,12 @@ extends KinematicBody2D
 var bullet_wave_scene = load("res://GameParts/Player/Bullet_Wave.tscn")
 
 var HP = 4
-var speed = 60
-var friction = 0.19
-var maxSpeed = 34
+export var speed = 79
+export var friction = 0.22
+var maxSpeed = 24
 var direction = Vector2()
-var canMove = true
-var canFire = true
+export var canMove = true
+export var canFire = true
 
 var invunrability = false
 var bullet_ready = true
@@ -49,7 +49,10 @@ func _input(event):
 			skill_flash()
 	if(event.is_action_pressed("player_skill1")):
 		if(skill_1_ready):
-			skill_dodge()
+			if(GM.teamPlayer == 1):
+				skill_charge()
+			if(GM.teamPlayer == 0):
+				skill_dodge()
 
 func getInput():
 	var newDirection = Vector2()
@@ -73,30 +76,30 @@ func get_head_vector():
 func _physics_process(delta):
 	if(canMove):
 		var newDirection = getInput()
-		if(newDirection != Vector2(0,0)):
-			$Head.update_direction(newDirection)
-			if(newDirection.distance_to(get_head_vector().round())<0.79):
-				#print(get_head_vector().ceil()," : ",newDirection)
-				if(newDirection.y == -1):
-					$effect4.region_rect.position.x = 128
-				else:
-					$effect4.region_rect.position.x = 0
-				if(newDirection.x != 0):
-					$effect4.region_rect.position.x = 64
-				if(newDirection.x ==1):
-					$effect4.scale.x = 1.0
-				if(newDirection.x == -1):
-					$effect4.scale.x = -1.0
-				direction += Vector2(newDirection.x/newDirection.length(),newDirection.y/newDirection.length())
+		#if(newDirection != Vector2(0,0)):
+		$Head.update_direction(newDirection)
+		if(newDirection.distance_to(get_head_vector().round())<0.79):
+			#print(get_head_vector().ceil()," : ",newDirection)
+			if(newDirection.y == -1):
+				$effect4.region_rect.position.x = 128
 			else:
-				direction += (newDirection *0.3)
-		if(direction.length()>maxSpeed):
-			direction -= direction * friction *3
+				$effect4.region_rect.position.x = 0
+			if(newDirection.x != 0):
+				$effect4.region_rect.position.x = 64
+			if(newDirection.x ==1):
+				$effect4.scale.x = 1.0
+			if(newDirection.x == -1):
+				$effect4.scale.x = -1.0
+			direction += Vector2(newDirection.x/newDirection.length(),newDirection.y/newDirection.length())
 		else:
-			direction -= direction * friction 
-		#direction.x = clamp(direction.x,-maxSpeed,maxSpeed)
-		#direction.y = clamp(direction.y,-maxSpeed,maxSpeed)
-		move_and_slide(direction * speed)
+			direction += (newDirection *0.3)
+	if(direction.length()>maxSpeed):
+		direction -= direction * friction *2
+	else:
+		direction -= direction * friction 
+	#direction.x = clamp(direction.x,-maxSpeed,maxSpeed)
+	#direction.y = clamp(direction.y,-maxSpeed,maxSpeed)
+	move_and_slide(direction * speed)
 
 
 
@@ -109,10 +112,22 @@ func invunrableStop():
 	
 func skill_charge():
 	print("charge")
+	skill_1_ready = false
+	$TimerSkill1.start()
+	invunrableStart()
 	pass
 
 func skill_dodge():
 	print("dodge")
+	skill_1_ready = false
+	$TimerSkill1.start(2.0)
+	$Skill1.play("Dodge")
+	direction = Vector2(-sin(deg2rad($Head.global_rotation_degrees)) ,-cos(deg2rad($Head.global_rotation_degrees+180))) *2.0
+	direction += Vector2(-sin(deg2rad((randf()-0.5)*$Head.global_rotation_degrees)) ,-cos(deg2rad((randf()-0.5)*($Head.global_rotation_degrees+180))))
+	direction *=4.0
+
+	
+	invunrableStart()
 	pass
 	
 	
@@ -164,9 +179,13 @@ func _on_TimerAttack_timeout():
 		$Head.fire_beam()
 		bullet_ready = false
 		$TimerAttack.start()
-	pass # Replace with function body.
 
 
 func _on_TimerFlash_timeout():
 	skill_flash_ready = true
-	pass # Replace with function body.
+
+
+
+func _on_TimerSkill1_timeout():
+	skill_1_ready = true
+

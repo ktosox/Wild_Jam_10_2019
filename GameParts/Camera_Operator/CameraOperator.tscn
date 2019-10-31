@@ -2,7 +2,7 @@
 
 [ext_resource path="res://GameParts/Camera_Operator/CameraOperator.gd" type="Script" id=1]
 
-[sub_resource type="Shader" id=5]
+[sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;	
 render_mode blend_mix;	
 uniform float range = 0.0;	
@@ -13,12 +13,11 @@ void fragment() {
 	if(distance(UV,vec2(0.5,0.5))<range){COLOR.a = 0.0;}
 }	"
 
-[sub_resource type="ShaderMaterial" id=6]
-shader = SubResource( 5 )
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
 shader_param/range = 1.0
 
-[sub_resource type="Animation" id=1]
-resource_name = "Color_Flash"
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorBox:modulate")
 tracks/0/interp = 2
@@ -32,8 +31,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.227451 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Fade_from_black"
+[sub_resource type="Animation" id=4]
 length = 1.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorBox:modulate")
@@ -60,8 +58,7 @@ tracks/1/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Fade_to_black"
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorBox:modulate")
 tracks/0/interp = 1
@@ -87,7 +84,7 @@ tracks/1/keys = {
 "values": [ 1.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:offset")
 tracks/0/interp = 1
@@ -118,32 +115,32 @@ anchor_mode = 0
 rotating = true
 current = true
 smoothing_enabled = true
-smoothing_speed = 3.0
+smoothing_speed = 4.0
 drag_margin_left = 0.1
 drag_margin_right = 0.1
 script = ExtResource( 1 )
 
 [node name="ColorBox" type="ColorRect" parent="."]
 modulate = Color( 0, 0, 0, 0 )
-margin_left = -640.0
-margin_top = -360.0
-margin_right = 640.0
-margin_bottom = 360.0
-rect_min_size = Vector2( 1280, 720 )
+margin_left = -900.0
+margin_top = -500.0
+margin_right = 900.0
+margin_bottom = 500.0
+rect_min_size = Vector2( 1800, 1000 )
 
 [node name="OverScreen" type="ColorRect" parent="."]
 modulate = Color( 0.105882, 0.105882, 0.14902, 1 )
-material = SubResource( 6 )
-margin_left = -640.0
-margin_top = -360.0
-margin_right = 640.0
-margin_bottom = 360.0
-rect_min_size = Vector2( 1280, 720 )
+material = SubResource( 2 )
+margin_left = -900.0
+margin_top = -500.0
+margin_right = 900.0
+margin_bottom = 500.0
+rect_min_size = Vector2( 1800, 1000 )
 color = Color( 0.105882, 0.105882, 0.14902, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Fade_from_black"
-anims/Color_Flash = SubResource( 1 )
-anims/Fade_from_black = SubResource( 2 )
-anims/Fade_to_black = SubResource( 3 )
-anims/Shake = SubResource( 4 )
+anims/Color_Flash = SubResource( 3 )
+anims/Fade_from_black = SubResource( 4 )
+anims/Fade_to_black = SubResource( 5 )
+anims/Shake = SubResource( 6 )

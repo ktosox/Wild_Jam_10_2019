@@ -9,6 +9,8 @@ func _ready():
 	pass # Replace with function body.
 
 func update_direction(newDirection):
+	if(newDirection == Vector2(0,0)):
+		return
 	var rot2vec = Vector2()
 	rot2vec.x = sin(deg2rad(global_rotation_degrees))
 	rot2vec.y = cos(deg2rad(global_rotation_degrees+180))

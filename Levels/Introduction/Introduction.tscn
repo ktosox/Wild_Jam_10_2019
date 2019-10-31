@@ -101,7 +101,7 @@ position = Vector2( 2.15845, 45.328 )
 shape = SubResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 10 )]
-position = Vector2( 744.216, 71.6384 )
+position = Vector2( 902.108, 129.054 )
 
 [node name="Tips" type="Node2D" parent="."]
 modulate = Color( 1, 1, 0.8, 1 )
