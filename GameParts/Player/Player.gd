@@ -2,12 +2,11 @@ extends KinematicBody2D
 
 
 var bullet_wave_scene = load("res://GameParts/Player/Bullet_Wave.tscn")
+var bullet_beam_scene = load("res://GameParts/Player/Bullet_Beam.tscn")
 
 var HP = 4
-export var speed = 79
-export var friction = 0.22
-var maxSpeed = 24
-var direction = Vector2()
+export var speed = 14
+export var direction = Vector2()
 export var canMove = true
 export var canFire = true
 
@@ -74,32 +73,41 @@ func get_head_vector():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	var newDirection = getInput()
+	match (newDirection):
+		Vector2(-1,-1):
+			$Move.play("NW")
+		Vector2(1,-1):
+			$Move.play("NE")
+		Vector2(-1,1):
+			$Move.play("SW")
+		Vector2(1,1):
+			$Move.play("SE")
+		Vector2(-1,0):
+			$Move.play("W")
+		Vector2(1,0):
+			$Move.play("E")
+		Vector2(0,-1):
+			$Move.play("N")
+		Vector2(0,1):
+			$Move.play("S")
+		Vector2(0,0):
+			$Move.play("stop")
 	if(canMove):
-		var newDirection = getInput()
-		#if(newDirection != Vector2(0,0)):
 		$Head.update_direction(newDirection)
-		if(newDirection.distance_to(get_head_vector().round())<0.79):
-			#print(get_head_vector().ceil()," : ",newDirection)
-			if(newDirection.y == -1):
-				$effect4.region_rect.position.x = 128
-			else:
-				$effect4.region_rect.position.x = 0
-			if(newDirection.x != 0):
-				$effect4.region_rect.position.x = 64
-			if(newDirection.x ==1):
-				$effect4.scale.x = 1.0
-			if(newDirection.x == -1):
-				$effect4.scale.x = -1.0
-			direction += Vector2(newDirection.x/newDirection.length(),newDirection.y/newDirection.length())
-		else:
-			direction += (newDirection *0.3)
-	if(direction.length()>maxSpeed):
-		direction -= direction * friction *2
-	else:
-		direction -= direction * friction 
-	#direction.x = clamp(direction.x,-maxSpeed,maxSpeed)
-	#direction.y = clamp(direction.y,-maxSpeed,maxSpeed)
-	move_and_slide(direction * speed)
+
+		if(newDirection.y == -1):
+			$effect4.region_rect.position.x = 128
+		if(newDirection.y == 1):
+			$effect4.region_rect.position.x = 0
+		if(newDirection.x != 0):
+			$effect4.region_rect.position.x = 64
+		if(newDirection.x ==1):
+			$effect4.scale.x = 1.0
+		if(newDirection.x == -1):
+			$effect4.scale.x = -1.0
+
+		move_and_slide(direction * speed)
 
 
 
@@ -122,9 +130,9 @@ func skill_dodge():
 	skill_1_ready = false
 	$TimerSkill1.start(2.0)
 	$Skill1.play("Dodge")
-	direction = Vector2(-sin(deg2rad($Head.global_rotation_degrees)) ,-cos(deg2rad($Head.global_rotation_degrees+180))) *2.0
-	direction += Vector2(-sin(deg2rad((randf()-0.5)*$Head.global_rotation_degrees)) ,-cos(deg2rad((randf()-0.5)*($Head.global_rotation_degrees+180))))
-	direction *=4.0
+	#direction = Vector2(-sin(deg2rad($Head.global_rotation_degrees)) ,-cos(deg2rad($Head.global_rotation_degrees+180))) *2.0
+	#direction += Vector2(-sin(deg2rad((randf()-0.5)*$Head.global_rotation_degrees)) ,-cos(deg2rad((randf()-0.5)*($Head.global_rotation_degrees+180))))
+	#direction *=4.0
 
 	
 	invunrableStart()

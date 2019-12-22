@@ -36,6 +36,5 @@ func fire_beam():
 	$outlet/CPUParticles2D.emitting = false
 	$outlet/CPUParticles2D.visible = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func fire_wave():
+	pass
