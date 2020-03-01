@@ -235,7 +235,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=11]
 resource_name = "E"
 length = 0.4
 tracks/0/type = "value"
@@ -251,7 +251,7 @@ tracks/0/keys = {
 "values": [ Vector2( 20, 0 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=12]
 resource_name = "N"
 length = 0.4
 tracks/0/type = "value"
@@ -267,7 +267,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -20 ) ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=13]
 resource_name = "NE"
 length = 0.4
 tracks/0/type = "value"
@@ -283,7 +283,7 @@ tracks/0/keys = {
 "values": [ Vector2( 14, -14 ) ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=14]
 resource_name = "NW"
 length = 0.4
 tracks/0/type = "value"
@@ -299,7 +299,7 @@ tracks/0/keys = {
 "values": [ Vector2( -14, -14 ) ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=15]
 resource_name = "S"
 length = 0.4
 tracks/0/type = "value"
@@ -315,7 +315,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 20 ) ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=16]
 resource_name = "SE"
 length = 0.4
 tracks/0/type = "value"
@@ -347,8 +347,7 @@ tracks/0/keys = {
 "values": [ Vector2( -14, 14 ) ]
 }
 
-[sub_resource type="Animation" id=14]
-resource_name = "W"
+[sub_resource type="Animation" id=18]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:direction")
@@ -363,8 +362,7 @@ tracks/0/keys = {
 "values": [ Vector2( -20, 0 ) ]
 }
 
-[sub_resource type="Animation" id=13]
-resource_name = "stop"
+[sub_resource type="Animation" id=19]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:direction")
@@ -529,15 +527,15 @@ wait_time = 4.0
 one_shot = true
 
 [node name="Move" type="AnimationPlayer" parent="."]
-anims/E = SubResource( 12 )
-anims/N = SubResource( 15 )
-anims/NE = SubResource( 19 )
-anims/NW = SubResource( 18 )
-anims/S = SubResource( 16 )
-anims/SE = SubResource( 20 )
+anims/E = SubResource( 11 )
+anims/N = SubResource( 12 )
+anims/NE = SubResource( 13 )
+anims/NW = SubResource( 14 )
+anims/S = SubResource( 15 )
+anims/SE = SubResource( 16 )
 anims/SW = SubResource( 17 )
-anims/W = SubResource( 14 )
-anims/stop = SubResource( 13 )
+anims/W = SubResource( 18 )
+anims/stop = SubResource( 19 )
 [connection signal="body_entered" from="HitBox" to="." method="_on_HitBox_body_entered"]
 [connection signal="timeout" from="TimerAttack" to="." method="_on_TimerAttack_timeout"]
 [connection signal="timeout" from="TimerFlash" to="." method="_on_TimerFlash_timeout"]

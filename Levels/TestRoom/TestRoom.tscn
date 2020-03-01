@@ -1,13 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Levels/TestRoom/TestRoom.gd" type="Script" id=1]
 [ext_resource path="res://GameParts/Environment/Block.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GameParts/Environment/Big_Hole.tscn" type="PackedScene" id=3]
 [ext_resource path="res://GameParts/Environment/Small_Hole.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Resources/corrider_v3png.png" type="Texture" id=5]
 [ext_resource path="res://Levels/room_rect_wide.png" type="Texture" id=6]
 [ext_resource path="res://Resources/GATE.png" type="Texture" id=7]
-[ext_resource path="res://Levels/Room_statics.tscn" type="PackedScene" id=8]
 [ext_resource path="res://GameParts/Dudes/JumpingJeffrey/JumpingJeffrey.tscn" type="PackedScene" id=9]
 [ext_resource path="res://GameParts/Dudes/SpringySam/SpringySam.tscn" type="PackedScene" id=10]
 [ext_resource path="res://GameParts/Player/Player.tscn" type="PackedScene" id=11]
@@ -34,10 +32,6 @@ position = Vector2( 430.486, -138.48 )
 [node name="Block" parent="." instance=ExtResource( 2 )]
 position = Vector2( 113.383, -101.512 )
 
-[node name="corrider_v3png" type="Sprite" parent="."]
-position = Vector2( 1330.53, 1534.92 )
-texture = ExtResource( 5 )
-
 [node name="room" type="Sprite" parent="."]
 position = Vector2( 736.813, 740.195 )
 scale = Vector2( 2.32727, 2.19247 )
@@ -47,13 +41,6 @@ texture = ExtResource( 6 )
 position = Vector2( 217.495, -847.859 )
 scale = Vector2( 1.86197, 1.70903 )
 texture = ExtResource( 7 )
-
-[node name="StaticBody2D" parent="." instance=ExtResource( 8 )]
-position = Vector2( 712.156, 631.211 )
-scale = Vector2( 6.83, 6.19 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PoolVector2Array( 227.37, 213.816, -28.9124, 170.716, 3.00386, 128.667, 233.563, 169.139, 243.567, 139.705, -18.4324, 99.2323, -92.7449, 193.843 )
 
 [node name="JumpingJeffrey" parent="." instance=ExtResource( 9 )]
 active = true
@@ -96,26 +83,3 @@ position = Vector2( -81.7228, -602.875 )
 
 [node name="CanonCarl2" parent="." instance=ExtResource( 12 )]
 position = Vector2( -141.54, -358.074 )
-
-[node name="Line2D" type="Line2D" parent="."]
-visible = false
-position = Vector2( 2048.59, 1778.03 )
-points = PoolVector2Array( -800, 0, 0, 0 )
-width = 30.0
-texture_mode = 1062257705
-
-[node name="Line2D2" type="Line2D" parent="."]
-visible = false
-position = Vector2( 2080.22, 1717.9 )
-rotation = 0.785398
-points = PoolVector2Array( -800, 0, 0, 0 )
-width = 30.0
-texture_mode = 0
-
-[node name="Line2D3" type="Line2D" parent="."]
-visible = false
-position = Vector2( 2075.76, 1747.89 )
-rotation = 0.523599
-points = PoolVector2Array( -800, 0, 0, 0 )
-width = 30.0
-texture_mode = 0

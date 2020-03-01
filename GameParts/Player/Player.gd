@@ -5,7 +5,7 @@ var bullet_wave_scene = load("res://GameParts/Player/Bullet_Wave.tscn")
 var bullet_beam_scene = load("res://GameParts/Player/Bullet_Beam.tscn")
 
 var HP = 4
-export var speed = 14
+export var speed = 9
 export var direction = Vector2()
 export var canMove = true
 export var canFire = true
@@ -74,26 +74,26 @@ func get_head_vector():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	var newDirection = getInput()
-	match (newDirection):
-		Vector2(-1,-1):
-			$Move.play("NW")
-		Vector2(1,-1):
-			$Move.play("NE")
-		Vector2(-1,1):
-			$Move.play("SW")
-		Vector2(1,1):
-			$Move.play("SE")
-		Vector2(-1,0):
-			$Move.play("W")
-		Vector2(1,0):
-			$Move.play("E")
-		Vector2(0,-1):
-			$Move.play("N")
-		Vector2(0,1):
-			$Move.play("S")
-		Vector2(0,0):
-			$Move.play("stop")
 	if(canMove):
+		match (newDirection):
+			Vector2(-1,-1):
+				$Move.play("NW")
+			Vector2(1,-1):
+				$Move.play("NE")
+			Vector2(-1,1):
+				$Move.play("SW")
+			Vector2(1,1):
+				$Move.play("SE")
+			Vector2(-1,0):
+				$Move.play("W")
+			Vector2(1,0):
+				$Move.play("E")
+			Vector2(0,-1):
+				$Move.play("N")
+			Vector2(0,1):
+				$Move.play("S")
+			Vector2(0,0):
+				$Move.play("stop")
 		$Head.update_direction(newDirection)
 
 		if(newDirection.y == -1):
@@ -122,13 +122,14 @@ func skill_charge():
 	print("charge")
 	skill_1_ready = false
 	$TimerSkill1.start()
+	$Skill1.play("Charge")
 	invunrableStart()
 	pass
 
 func skill_dodge():
 	print("dodge")
 	skill_1_ready = false
-	$TimerSkill1.start(2.0)
+	$TimerSkill1.start()
 	$Skill1.play("Dodge")
 	#direction = Vector2(-sin(deg2rad($Head.global_rotation_degrees)) ,-cos(deg2rad($Head.global_rotation_degrees+180))) *2.0
 	#direction += Vector2(-sin(deg2rad((randf()-0.5)*$Head.global_rotation_degrees)) ,-cos(deg2rad((randf()-0.5)*($Head.global_rotation_degrees+180))))

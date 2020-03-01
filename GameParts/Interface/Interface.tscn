@@ -5,6 +5,7 @@
 [ext_resource path="res://GameParts/Interface/DialogBox/DialogBox.tscn" type="PackedScene" id=3]
 
 [node name="Interface" type="VBoxContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 1280, 720 )

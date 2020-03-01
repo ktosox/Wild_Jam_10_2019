@@ -85,7 +85,6 @@ position = Vector2( 574.77, 621.911 )
 position = Vector2( 815.55, 357.641 )
 
 [node name="gates_frame" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 756.157, -115.676 )
 texture = ExtResource( 8 )
 
