@@ -8,7 +8,7 @@ var musicList = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_on_MusicPlayer_finished()
+	#_on_MusicPlayer_finished()
 #	if(AudioServer.is_bus_mute(AudioServer.get_bus_index("Music"))):
 #		$MusicPlayer.free()
 #	else:
